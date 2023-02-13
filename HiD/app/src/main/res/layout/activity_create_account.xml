@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenback2"
+    tools:context=".activities.CreateAccountActivity">
+
+    <TextView
+        android:id="@+id/txtCreateAccountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/CAWelcome"
+        android:textColor="@color/deepGreen"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCALastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/CAFirstName"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateAccountTitle" />
+
+    <EditText
+        android:id="@+id/edittxtCALastName"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCALastName" />
+
+    <TextView
+        android:id="@+id/txtCAFirtstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/CALastName"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtCALastName" />
+
+    <EditText
+        android:id="@+id/edittxtCAFirstName"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCAFirtstName" />
+
+    <TextView
+        android:id="@+id/txtCAEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/CAEmail"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtCAFirstName" />
+
+    <EditText
+        android:id="@+id/edittxtCAEmail"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCAEmail" />
+
+    <TextView
+        android:id="@+id/txtCAPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/CAPassword"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtCAEmail" />
+
+    <EditText
+        android:id="@+id/edittxtCAPassword"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCAPassword" />
+
+    <TextView
+        android:id="@+id/txtCAConPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/CAConfirmPassword"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtCAPassword" />
+
+    <EditText
+        android:id="@+id/edittxtCAConPassword"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCAConPassword" />
+
+    <Button
+        android:id="@+id/btnCASave"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/CABtnSave"
+        android:background="@drawable/btn_bg_green"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtCAConPassword" />
+</androidx.constraintlayout.widget.ConstraintLayout>

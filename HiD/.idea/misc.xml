@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/btn_bg.xml" value="0.315" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/btn_bg_blue.xml" value="0.1185" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/btn_bg_brown.xml" value="0.1185" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/btn_bg_green.xml" value="0.1685" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/editfield.xml" value="0.1185" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/drawable/star.xml" value="0.1325" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_box_breathing.xml" value="0.264" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_contact_people.xml" value="0.2833333333333333" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_create_account.xml" value="0.2833333333333333" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_create_my_dactivity.xml" value="0.3111111111111111" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_dboard.xml" value="0.36102564102564105" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_do_not_blame.xml" value="0.36666666666666664" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_home.xml" value="0.2833333333333333" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_log_in_out.xml" value="0.3111111111111111" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_reset_password.xml" value="0.2833333333333333" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_shareforum.xml" value="0.4" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_splash.xml" value="0.18885869565217392" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/forum_item.xml" value="0.1" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/forum_item_header.xml" value="0.33425925925925926" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

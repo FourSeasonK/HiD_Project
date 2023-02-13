@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/backMidBlue"
+    android:layout_height="30dp">
+
+    <TextView
+        android:id="@+id/txtSFNumH"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:gravity="center_vertical"
+        android:text="@string/SFNumHeader"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/deepBlue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtSFTitleH"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="01"
+        android:gravity="center_vertical"
+        android:text="@string/SFTitleHeader"
+        android:textStyle="bold"
+        android:textColor="@color/deepBlue" />
+
+    <TextView
+        android:id="@+id/txtSFNameH"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.15"
+        android:gravity="center_vertical"
+        android:text="@string/SFNameHeader"
+        android:textColor="@color/deepBlue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtSFDateH"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:gravity="center_vertical"
+        android:text="@string/SFDateHeader"
+        android:textColor="@color/deepBlue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtSFReaction"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:gravity="center_vertical"
+        android:textColor="@color/deepBlue"
+        android:textStyle="bold"
+        android:text="@string/SFReactionHeader" />
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+
+    <style name="DarkGreenTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/darkGreen</item>
+    </style>
+
+    <style name="CreateDTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/deepBrown</item>
+    </style>
+
+    <style name="CommunicateTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/deepBlue</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pinkback"
+    tools:context=".activities.CreateMyDActivity">
+
+    <ImageView
+        android:id="@+id/imgDrawBoard"
+        android:layout_width="534dp"
+        android:layout_height="485dp"
+        android:layout_marginTop="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateDTitle"
+        app:srcCompat="@drawable/createdsquare" />
+
+    <TextView
+        android:id="@+id/txtCreateDTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/createMyDTitle"
+        android:textColor="@color/deepBrown"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgEyes"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgNoses"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/eyes" />
+
+    <ImageView
+        android:id="@+id/imgNoses"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgLips"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/noses" />
+
+    <ImageView
+        android:id="@+id/imgLips"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgShapes"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/lips" />
+
+    <ImageView
+        android:id="@+id/imgShapes"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgLines"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/shapes" />
+
+    <ImageView
+        android:id="@+id/imgLines"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgBackgrounds"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/lines" />
+
+    <ImageView
+        android:id="@+id/imgBackgrounds"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgDTools"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/backgrounds" />
+
+    <ImageView
+        android:id="@+id/imgDTools"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
+        app:srcCompat="@drawable/dtools" />
+
+    <Button
+        android:id="@+id/btnSaveCreateD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_bg_brown"
+        android:text="@string/btnSaveCreated"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btnShareCreateD"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgShapes" />
+
+    <Button
+        android:id="@+id/btnShareCreateD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/btn_bg_brown"
+        android:text="@string/btnShareCreated"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgShapes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">HiD</string>
+    <string name="homeTitle1">Thank you</string>
+    <string name="homeTitle2">For</string>
+    <string name="homeTitle3">Being Brave</string>
+    <string name="meetD">Meet D</string>
+    <string name="homeCreateD">Create My D</string>
+    <string name="homeGetReady">Get Ready</string>
+    <string name="homeBoxBreath">Box Breathing</string>
+    <string name="homeDonotBlame">Don\'t Blame me</string>
+    <string name="homeTogether">Together</string>
+    <string name="homeContactP">Contact People</string>
+    <string name="homeShareD">Sharing Forum</string>
+    <string name="boxBreathingTitle">Box Breathing</string>
+
+    <!--    Log In/Out -->
+    <string name="logBtnStartNow">Start Now</string>
+    <string name="loginTitle">Do you want log in?</string>
+    <string name="logEmail">Email</string>
+    <string name="logPassword">Password</string>
+    <string name="logForgotPassword">Forgot Password</string>
+    <string name="logBtnLogin">Log In</string>
+    <string name="logCreateAccount">Create New Account</string>
+    <string name="logHint">abc@abc.com</string>
+
+    <!--    Create Account -->
+    <string name="CAWelcome">Welcome</string>
+    <string name="CAFirstName">First Name</string>
+    <string name="CALastName">Last Name</string>
+    <string name="CAEmail">Email</string>
+    <string name="CAPassword">Password</string>
+    <string name="CAConfirmPassword">Confirm Password</string>
+    <string name="CABtnSave">Save</string>
+
+    <!--    Reset Password -->
+    <string name="RPTitle">Reset Password</string>
+    <string name="btnRPUpdate">Update</string>
+    <string name="RPLogIn">Go Back to Lon In</string>
+
+    <!--    Do No Blame me Activity-->
+    <string name="DoNoBlameTitle">Don\'t Blame me</string>
+    <string name="DoNotBBtn">Save &amp; Notification</string>
+    <string name="txtSubTitle1">SITUATION</string>
+    <string name="txtSubDescribe1">Describe the situation (100)</string>
+    <string name="txtSubTitle2">HUG MYSELF</string>
+    <string name="txtSubDescribe2">What would you do to comfort your friend if they were in the same situation as you?</string>
+
+    <!--    Create My D-->
+    <string name="createMyDTitle">Create My D</string>
+    <string name="btnSaveCreated">Save</string>
+    <string name="btnShareCreated">Share</string>
+
+    <!--    Contact People  -->
+    <string name="CPTitle">Contact People</string>
+    <string name="CPSubTitle">SHALL WE HAVE A LITTLE MORE COURAGE?</string>
+    <string name="CPDescribe">How about texting or calling three friends or family today?\nLess than three people is fine.\nTry to say hello to at least one person.\nYour day will be FRESH!</string>
+    <string name="CPBtnText">Text</string>
+    <string name="CPBtnCall">Call</string>
+
+    <!--    D Board -->
+    <string name="DBTitle">Sharing Forum</string>
+    <string name="DBBtnUpload">Upload</string>
+
+    <!--    Share Board-->
+    <string name="SFTitle">Title Example</string>
+    <string name="SFName">Name</string>
+    <string name="SFDate">2023-01-01</string>
+    <string name="SFNumHeader">No</string>
+    <string name="SFTitleHeader">Title</string>
+    <string name="SFNameHeader">Name</string>
+    <string name="SFDateHeader">Date</string>
+    <string name="SFReactionHeader">Reaction</string>
+
+</resources>
