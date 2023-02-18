@@ -19,4 +19,6 @@
     <color name="deepBlue">#00376A</color>
     <color name="backLightBlue">#DFF0FF</color>
     <color name="backMidBlue">#BFE0FF</color>
+    <color name="tableDeepBlue">#527BA2</color>
+    <color name="tableLightBlue">#DFF0FF</color>
 </resources>

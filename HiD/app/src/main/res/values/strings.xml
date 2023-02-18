@@ -71,4 +71,18 @@
     <string name="SFDateHeader">Date</string>
     <string name="SFReactionHeader">Reaction</string>
 
+<!--    update my D -->
+    <string name="UPDMainTitle">Share My D</string>
+    <string name="UPDNameLabel">Name</string>
+    <string name="UPDName">Name Here</string>
+    <string name="UPDTitleLabel">Title</string>
+    <string name="UPDTitle">Title Here</string>
+    <string name="UPDDateLabel">Date</string>
+    <string name="UPDDate">Date Here</string>
+    <string name="UPDContentsLabel">Contents</string>
+    <string name="UPDContents">Contents Here</string>
+    <string name="UPDImageLabel">Image</string>
+    <string name="UPDImgUpload">Upload</string>
+    <string name="btnUPDSave">Save</string>
+
 </resources>
