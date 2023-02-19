@@ -2,6 +2,7 @@ package com.example.hid.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hid.databinding.ActivityLogInOutBinding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,11 @@ import android.widget.TextView;
 
 import com.example.hid.R;
 
-public class LogInOutActivity extends AppCompatActivity {
+public class LogInOutActivity extends NavigationActivity {
+
+    private static final String TAG = LogInOutActivity.class.getSimpleName();
+    ActivityLogInOutBinding activityLogInOutBinding;
+
 
     Button btnStartNow;
     TextView txtCreatNewAccount;
@@ -19,11 +24,14 @@ public class LogInOutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in_out);
+//        setContentView(R.layout.activity_log_in_out);
 
-        btnStartNow = findViewById(R.id.btnStartNow);
-        txtCreatNewAccount = findViewById(R.id.txtCreateNewAccount);
-        txtForgotPassword = findViewById(R.id.txtLogInForgotpPassword);
+        activityLogInOutBinding = ActivityLogInOutBinding.inflate(getLayoutInflater());
+        View rooView = getLayoutInflater().inflate(R.layout.activity_log_in_out, frameLayout);
+
+        btnStartNow = rooView.findViewById(R.id.btnStartNow);
+        txtCreatNewAccount = rooView.findViewById(R.id.txtCreateNewAccount);
+        txtForgotPassword = rooView.findViewById(R.id.txtLogInForgotpPassword);
 
         btnStartNow.setOnClickListener(new View.OnClickListener() {
             @Override

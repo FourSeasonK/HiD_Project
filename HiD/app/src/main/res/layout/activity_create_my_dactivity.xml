@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pinkback"
+    android:background="@drawable/greenback"
     tools:context=".activities.CreateMyDActivity">
 
     <ImageView
@@ -21,9 +21,9 @@
         android:id="@+id/txtCreateDTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="60dp"
         android:text="@string/createMyDTitle"
-        android:textColor="@color/deepBrown"
+        android:textColor="@color/deepGreen"
         android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/btn_bg_brown"
+        android:background="@drawable/btn_bg_green"
         android:text="@string/btnSaveCreated"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btnShareCreateD"
@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="28dp"
-        android:background="@drawable/btn_bg_brown"
+        android:background="@drawable/btn_bg_green"
         android:text="@string/btnShareCreated"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

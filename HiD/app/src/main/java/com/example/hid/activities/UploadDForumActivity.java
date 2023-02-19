@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.hid.R;
 
-public class UpdateDForumActivity extends AppCompatActivity {
+public class UploadDForumActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

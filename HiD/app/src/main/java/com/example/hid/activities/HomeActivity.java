@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.hid.R;
+import com.example.hid.databinding.ActivityHomeBinding;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends NavigationActivity {
+
+    private static final String TAG = HomeActivity.class.getSimpleName();
+    ActivityHomeBinding activityHomeBinding;
 
     ImageView imgbtnBoxBreathing;
     ImageView imgbtnDonotBlame;
@@ -21,13 +25,16 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+//        setContentView(R.layout.activity_home);
 
-        imgbtnBoxBreathing = findViewById(R.id.imgbtnBoxBreath);
-        imgbtnDonotBlame = findViewById(R.id.imgbtnDonotBlame);
-        imgbtnCreateMyD = findViewById(R.id.imgbtnCreadD);
-        imgbtnContactPeople = findViewById(R.id.imgbtnContactP);
-        imgbtnShareForum = findViewById(R.id.imgbtnShareD);
+        activityHomeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
+        View rootView = getLayoutInflater().inflate(R.layout.activity_home, frameLayout);
+
+        imgbtnBoxBreathing = rootView.findViewById(R.id.imgbtnBoxBreath);
+        imgbtnDonotBlame = rootView.findViewById(R.id.imgbtnDonotBlame);
+        imgbtnCreateMyD = rootView.findViewById(R.id.imgbtnCreadD);
+        imgbtnContactPeople = rootView.findViewById(R.id.imgbtnContactP);
+        imgbtnShareForum = rootView.findViewById(R.id.imgbtnShareD);
 
         imgbtnBoxBreathing.setOnClickListener(new View.OnClickListener() {
             @Override

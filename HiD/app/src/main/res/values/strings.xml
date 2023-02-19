@@ -13,6 +13,10 @@
     <string name="homeShareD">Sharing Forum</string>
     <string name="boxBreathingTitle">Box Breathing</string>
 
+    <!--    Nav Bar-->
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+
     <!--    Log In/Out -->
     <string name="logBtnStartNow">Start Now</string>
     <string name="loginTitle">Do you want log in?</string>
@@ -71,7 +75,7 @@
     <string name="SFDateHeader">Date</string>
     <string name="SFReactionHeader">Reaction</string>
 
-<!--    update my D -->
+    <!--    update my D -->
     <string name="UPDMainTitle">Share My D</string>
     <string name="UPDNameLabel">Name</string>
     <string name="UPDName">Name Here</string>
@@ -82,7 +86,7 @@
     <string name="UPDContentsLabel">Contents</string>
     <string name="UPDContents">Contents Here</string>
     <string name="UPDImageLabel">Image</string>
-    <string name="UPDImgUpload">Upload</string>
+    <string name="UPDImgUpload">Upload Image</string>
     <string name="btnUPDSave">Save</string>
 
 </resources>

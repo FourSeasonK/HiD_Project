@@ -21,4 +21,5 @@
     <color name="backMidBlue">#BFE0FF</color>
     <color name="tableDeepBlue">#527BA2</color>
     <color name="tableLightBlue">#DFF0FF</color>
+    <color name="tableHeaderGreen">#46E89A</color>
 </resources>

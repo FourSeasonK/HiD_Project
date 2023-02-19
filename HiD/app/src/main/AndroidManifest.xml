@@ -14,16 +14,21 @@
         android:theme="@style/Theme.HiD"
         tools:targetApi="31">
         <activity
-            android:name=".activities.UpdateDForumActivity"
+            android:name=".activities.UserDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ShareForumActivity"
+            android:name=".activities.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UploadDForumActivity"
             android:exported="false"
             android:theme="@style/CommunicateTheme" />
         <activity
+            android:name=".activities.ShareForumActivity"
+            android:exported="false"/>
+        <activity
             android:name=".activities.ContactPeopleActivity"
-            android:exported="false"
-            android:theme="@style/CommunicateTheme" />
+            android:exported="false"/>
         <activity
             android:name=".activities.ResetPasswordActivity"
             android:exported="false" />
@@ -41,8 +46,7 @@
         </activity>
         <activity
             android:name=".activities.CreateMyDActivity"
-            android:exported="false"
-            android:theme="@style/CreateDTheme" />
+            android:exported="false" />
         <activity
             android:name=".activities.DoNotBlameActivity"
             android:exported="false" />
@@ -54,8 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.HomeActivity"
-            android:exported="false"
-            android:theme="@style/DarkGreenTheme">
+            android:exported="false">
 
             <!-- android:exported="true" -->
             <!-- <intent-filter> -->
@@ -64,6 +67,11 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+
+<!--            <activity-->
+<!--                android:name=".activities.ContactPeopleActivity"-->
+<!--                android:exported="false"-->
+<!--                android:theme="@style/CommunicateTheme" />-->
         </activity>
     </application>
 

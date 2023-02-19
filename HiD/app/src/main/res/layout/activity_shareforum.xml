@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blueback"
+    android:background="@drawable/greenback"
     tools:context=".activities.ShareForumActivity">
 
-    <ImageView
-        android:id="@+id/imgSDFBack"
-        android:layout_width="384dp"
-        android:layout_height="509dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDBTitle"
-        app:srcCompat="@drawable/sharemydback" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imgSDFBack"-->
+<!--        android:layout_width="384dp"-->
+<!--        android:layout_height="509dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.481"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtDBTitle"-->
+<!--        app:srcCompat="@drawable/sharemydback" />-->
 
     <TextView
         android:id="@+id/txtDBTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="80dp"
         android:text="@string/DBTitle"
-        android:textColor="@color/deepBlue"
+        android:textColor="@color/deepGreen"
         android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,20 +36,20 @@
         android:id="@+id/btnSBUpload"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btn_bg_blue"
+        android:layout_marginTop="536dp"
+        android:background="@drawable/btn_bg_green"
         android:text="@string/DBBtnUpload"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgSDFBack" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDBTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/SBrecyclerview"
         android:layout_width="354dp"
-        android:layout_height="459dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"

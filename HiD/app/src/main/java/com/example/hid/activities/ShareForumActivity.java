@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.hid.R;
 import com.example.hid.adapter.ShareForumAdapter;
+import com.example.hid.databinding.ActivityShareforumBinding;
 import com.example.hid.model.Shareforum;
 
 import java.text.SimpleDateFormat;
@@ -18,9 +22,10 @@ import java.util.Date;
 import java.util.List;
 
 
-public class ShareForumActivity extends AppCompatActivity {
+public class ShareForumActivity extends NavigationActivity {
 
     private static final String TAG = ShareForumActivity.class.getSimpleName();
+    ActivityShareforumBinding activityShareforumBinding;
 
     Date today;
     SimpleDateFormat dateFormat;
@@ -29,6 +34,7 @@ public class ShareForumActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ShareForumAdapter adapter;
+    Button btnUploadD;
 
     List<String> sfNumbers = new ArrayList<>(Arrays.asList("1", "2", "3"));
     List<String> sfTitles = new ArrayList<>(Arrays.asList("Title1", "Title2", "Title3"));
@@ -39,9 +45,13 @@ public class ShareForumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shareforum);
+        //setContentView(R.layout.activity_shareforum);
 
-        recyclerView = findViewById(R.id.SBrecyclerview);
+        activityShareforumBinding = ActivityShareforumBinding.inflate(getLayoutInflater());
+        View rootView = getLayoutInflater().inflate(R.layout.activity_shareforum, frameLayout);
+
+        recyclerView = rootView.findViewById(R.id.SBrecyclerview);
+        btnUploadD = rootView.findViewById(R.id.btnSBUpload);
 
         today = Calendar.getInstance().getTime();
         dateFormat = new SimpleDateFormat("MM/dd/yy");
@@ -57,6 +67,14 @@ public class ShareForumActivity extends AppCompatActivity {
 
         adapter = new ShareForumAdapter(this, sfList);
         recyclerView.setAdapter(adapter);
+
+        btnUploadD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShareForumActivity.this, UploadDForumActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
