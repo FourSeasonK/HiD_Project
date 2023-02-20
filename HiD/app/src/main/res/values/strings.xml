@@ -35,6 +35,10 @@
     <string name="CAPassword">Password</string>
     <string name="CAConfirmPassword">Confirm Password</string>
     <string name="CABtnSave">Save</string>
+    <string name="moveToLogIn">Already having the account, LogIn</string>
+    <string name="err_msg_email">Enter a valid email.</string>
+    <string name="err_msg_required">Required !!</string>
+    <string name="err_msg_password">Enter a valid password with min 6 characters.</string>
 
     <!--    Reset Password -->
     <string name="RPTitle">Reset Password</string>

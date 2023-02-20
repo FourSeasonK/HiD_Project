@@ -7,6 +7,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.ClipData;
+import android.content.SharedPreferences;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +29,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     private Toolbar toolbar;
     private DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
+    View logInOut;
 
 
     @Override
@@ -36,6 +40,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         initView();
         frameLayout = (FrameLayout) findViewById(R.id.container);
         drawer = findViewById(R.id.drawer_layout);
+        logInOut = findViewById(R.id.nav_login);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
         navigationView.setNavigationItemSelectedListener(this);
@@ -57,61 +62,113 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
+//        SharedPreferences sh = getSharedPreferences("LogInSuccess", 0);
+//        boolean logIn = sh.getBoolean("LOGINVALUE", false);
+//        Log.d("LogInBoolValue", String.valueOf(logIn));
+
         menuItem.setChecked(true);
 
-        switch (menuItem.getItemId()){
-            case R.id.nav_home:
-                Intent switchToHomeIntent = new Intent(this, HomeActivity.class);
-                startActivity(switchToHomeIntent);
-                break;
+//        if (logIn == true) {
+//            logInOut.setBackgroundResource(R.drawable.nav_logout);
 
-            case R.id.nav_boxBreath:
-                Intent switchToBoxBIntent = new Intent(this, BoxBreathingActivity.class);
-                startActivity(switchToBoxBIntent);
-                break;
+            switch (menuItem.getItemId()) {
+                case R.id.nav_home:
+                    Intent switchToHomeIntent = new Intent(this, HomeActivity.class);
+                    startActivity(switchToHomeIntent);
+                    break;
 
-            case R.id.nav_donotB:
-                Intent switchToDonotBIntent = new Intent(this, DoNotBlameActivity.class);
-                startActivity(switchToDonotBIntent);
-                break;
+                case R.id.nav_boxBreath:
+                    Intent switchToBoxBIntent = new Intent(this, BoxBreathingActivity.class);
+                    startActivity(switchToBoxBIntent);
+                    break;
 
-            case R.id.nav_createD:
-                Intent switchToCreateDIntent = new Intent(this, CreateMyDActivity.class);
-                startActivity(switchToCreateDIntent);
-                break;
+                case R.id.nav_donotB:
+                    Intent switchToDonotBIntent = new Intent(this, DoNotBlameActivity.class);
+                    startActivity(switchToDonotBIntent);
+                    break;
 
-            case R.id.nav_DForum:
-                Intent switchToDForumIntent = new Intent(this, ShareForumActivity.class);
-                startActivity(switchToDForumIntent);
-                break;
+                case R.id.nav_createD:
+                    Intent switchToCreateDIntent = new Intent(this, CreateMyDActivity.class);
+                    startActivity(switchToCreateDIntent);
+                    break;
 
-            case R.id.nav_contactP:
-                Intent switchToContactPIntent = new Intent(this, ContactPeopleActivity.class);
-                startActivity(switchToContactPIntent);
-                break;
+                case R.id.nav_DForum:
+                    Intent switchToDForumIntent = new Intent(this, ShareForumActivity.class);
+                    startActivity(switchToDForumIntent);
+                    break;
 
-            case R.id.nav_userDashboaed:
-                Intent switchToUserDashBIntent = new Intent(this, UserDashboardActivity.class);
-                startActivity(switchToUserDashBIntent);
-                break;
+                case R.id.nav_contactP:
+                    Intent switchToContactPIntent = new Intent(this, ContactPeopleActivity.class);
+                    startActivity(switchToContactPIntent);
+                    break;
 
-            case R.id.nav_login:
-                Intent switchToLogInIntent = new Intent(this, LogInOutActivity.class);
-                startActivity(switchToLogInIntent);
-                break;
+                case R.id.nav_userDashboaed:
+                    Intent switchToUserDashBIntent = new Intent(this, UserDashboardActivity.class);
+                    startActivity(switchToUserDashBIntent);
+                    break;
 
-            case R.id.nav_userInfo:
-                Intent switchToUserInfoIntent = new Intent(this, UserDashboardActivity.class);
-                startActivity(switchToUserInfoIntent);
+                case R.id.nav_login:
+                    Intent switchToLogInIntent = new Intent(this, LogInOutActivity.class);
+                    startActivity(switchToLogInIntent);
+                    break;
 
-            case R.id.nav_password:
-                Intent switchToPasswordInIntent = new Intent(this, ResetPasswordActivity.class);
-                startActivity(switchToPasswordInIntent);
-                break;
+                case R.id.nav_userInfo:
+                    Intent switchToUserInfoIntent = new Intent(this, UserDashboardActivity.class);
+                    startActivity(switchToUserInfoIntent);
+
+                case R.id.nav_password:
+                    Intent switchToPasswordInIntent = new Intent(this, ResetPasswordActivity.class);
+                    startActivity(switchToPasswordInIntent);
+                    break;
+            }
+//        } else {
+//            switch (menuItem.getItemId()) {
+//                case R.id.nav_home:
+//                    Intent switchToHomeIntent = new Intent(this, HomeActivity.class);
+//                    startActivity(switchToHomeIntent);
+//                    break;
+//
+//                case R.id.nav_boxBreath:
+//                    Intent switchToBoxBIntent = new Intent(this, BoxBreathingActivity.class);
+//                    startActivity(switchToBoxBIntent);
+//                    break;
+//
+//                case R.id.nav_donotB:
+//                    Intent switchToDonotBIntent = new Intent(this, DoNotBlameActivity.class);
+//                    startActivity(switchToDonotBIntent);
+//                    break;
+//
+//                case R.id.nav_createD:
+//                    Intent switchToCreateDIntent = new Intent(this, CreateMyDActivity.class);
+//                    startActivity(switchToCreateDIntent);
+//                    break;
+//
+//                case R.id.nav_DForum:
+//                    Intent switchToDForumIntent = new Intent(this, ShareForumActivity.class);
+//                    startActivity(switchToDForumIntent);
+//                    break;
+//
+//                case R.id.nav_contactP:
+//                    Intent switchToContactPIntent = new Intent(this, ContactPeopleActivity.class);
+//                    startActivity(switchToContactPIntent);
+//                    break;
+//
+//                case R.id.nav_userDashboaed:
+//                    Intent switchToUserDashBIntent = new Intent(this, UserDashboardActivity.class);
+//                    startActivity(switchToUserDashBIntent);
+//                    break;
+//
+//                case R.id.nav_login:
+//                    Intent switchToLogInIntent = new Intent(this, LogInOutActivity.class);
+//                    startActivity(switchToLogInIntent);
+//                    break;
+//
+//            }
+//        }
+
+            return true;
         }
 
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
