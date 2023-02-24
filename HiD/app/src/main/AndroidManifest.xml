@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hid">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,6 +19,27 @@
         android:theme="@style/Theme.HiD"
         tools:targetApi="31">
         <activity
+            android:name=".ShapeAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".LipAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".NoseAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".EyeColorAcdapter"
+            android:exported="false" />
+        <activity
+            android:name=".created.adapter.EyesAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".created.fragment.ImageFragment"
+            android:exported="false" />
+        <activity
+            android:name=".created.adapter.FrameAdapter"
+            android:exported="false" />
+        <activity
             android:name=".activities.UserDashboardActivity"
             android:exported="false" />
         <activity
@@ -24,10 +50,10 @@
             android:exported="false" />
         <activity
             android:name=".activities.ShareForumActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.ContactPeopleActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.ResetPasswordActivity"
             android:exported="false" />
@@ -44,7 +70,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.CreateMyDActivity"
+            android:name=".created.CreateMyDActivity"
             android:exported="false" />
         <activity
             android:name=".activities.DoNotBlameActivity"
@@ -67,10 +93,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
 
-<!--            <activity-->
-<!--                android:name=".activities.ContactPeopleActivity"-->
-<!--                android:exported="false"-->
-<!--                android:theme="@style/CommunicateTheme" />-->
+
+            <!-- <activity -->
+            <!-- android:name=".activities.ContactPeopleActivity" -->
+            <!-- android:exported="false" -->
+            <!-- android:theme="@style/CommunicateTheme" /> -->
         </activity>
     </application>
 

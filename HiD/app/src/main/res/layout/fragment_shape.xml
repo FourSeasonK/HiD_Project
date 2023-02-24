@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/shapeContainer"
+    tools:context=".created.fragment.ShapeFragment">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_shapeIcons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_shapeColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/btn_add_imageShapes"
+            android:text="Add Shape Image"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_bg_green"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="7dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

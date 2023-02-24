@@ -2,20 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contraintlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/greenback"
-    tools:context=".activities.CreateMyDActivity">
+    tools:context=".created.CreateMyDActivity">
 
-    <ImageView
+    <ja.burhanrashid52.photoeditor.PhotoEditorView
         android:id="@+id/imgDrawBoard"
-        android:layout_width="534dp"
+        android:layout_width="400dp"
         android:layout_height="485dp"
         android:layout_marginTop="11dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreateDTitle"
-        app:srcCompat="@drawable/createdsquare" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateDTitle">
+
+        <ImageView
+            android:id="@+id/img_backdraw"
+            android:layout_width="394dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="3dp"
+            android:src="@drawable/backdraw" />
+    </ja.burhanrashid52.photoeditor.PhotoEditorView>
 
     <TextView
         android:id="@+id/txtCreateDTitle"
@@ -41,7 +50,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/eyes" />
+        app:srcCompat="@drawable/eyegray" />
 
     <ImageView
         android:id="@+id/imgNoses"
@@ -51,7 +60,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imgLips"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/noses" />
+        app:srcCompat="@drawable/nosegray" />
 
     <ImageView
         android:id="@+id/imgLips"
@@ -61,7 +70,17 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imgShapes"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/lips" />
+        app:srcCompat="@drawable/lipgray" />
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imgLines"-->
+    <!--        android:layout_width="45dp"-->
+    <!--        android:layout_height="45dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/imgShapes"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"-->
+    <!--        app:srcCompat="@drawable/linegray" />-->
 
     <ImageView
         android:id="@+id/imgShapes"
@@ -69,19 +88,19 @@
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/imgLines"
+        app:layout_constraintEnd_toStartOf="@+id/imgFrames"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/shapes" />
+        app:srcCompat="@drawable/shapegray" />
 
     <ImageView
-        android:id="@+id/imgLines"
+        android:id="@+id/imgFrames"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imgBackgrounds"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/lines" />
+        app:srcCompat="@drawable/framegray" />
 
     <ImageView
         android:id="@+id/imgBackgrounds"
@@ -91,7 +110,7 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/imgDTools"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/backgrounds" />
+        app:srcCompat="@drawable/backgroundgray" />
 
     <ImageView
         android:id="@+id/imgDTools"
@@ -101,7 +120,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgDrawBoard"
-        app:srcCompat="@drawable/dtools" />
+        app:srcCompat="@drawable/drawgray" />
 
     <Button
         android:id="@+id/btnSaveCreateD"
