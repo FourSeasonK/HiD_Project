@@ -17,6 +17,8 @@ import android.widget.FrameLayout;
 import com.example.hid.R;
 import com.example.hid.created.CreateMyDActivity;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,11 +29,41 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     ActionBarDrawerToggle toggle;
     View logInOut;
 
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+//        auth = FirebaseAuth.getInstance();
+//
+//        authListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//
+//
+//                if(user == null){
+//                    initView();
+//                    frameLayout = (FrameLayout) findViewById(R.id.container);
+//                    drawer = findViewById(R.id.drawer_layout);
+//                    logInOut = findViewById(R.id.nav_login);
+//                    NavigationView navigationView = findViewById(R.id.nav_view);
+//
+//                    navigationView.setNavigationItemSelectedListener(NavigationActivity.this);
+//                } else {
+//                    loginView();
+//                    frameLayout = (FrameLayout) findViewById(R.id.containerlogin);
+//                    drawer = findViewById(R.id.drawer_layout_login);
+//                    logInOut = findViewById(R.id.nav_login);
+//                    NavigationView navigationView = findViewById(R.id.nav_viewlogin);
+//
+//                    navigationView.setNavigationItemSelectedListener(NavigationActivity.this);
+//                }
+//            }
+//        };
 
         initView();
         frameLayout = (FrameLayout) findViewById(R.id.container);
@@ -43,11 +75,40 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        auth.addAuthStateListener(authListener);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        auth.addAuthStateListener(authListener);
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        auth.removeAuthStateListener(authListener);
+//    }
+
     private void initView(){
 
         toolbar = findViewById(R.id.toolbar);
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_nav, R.string.close_nav);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void loginView(){
+        toolbar = findViewById(R.id.toolbarlogin);
+        drawer = findViewById(R.id.drawer_layout_login);
+        NavigationView navigationView = findViewById(R.id.nav_viewlogin);
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_nav, R.string.close_nav);
         drawer.addDrawerListener(toggle);
@@ -106,6 +167,12 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 case R.id.nav_login:
                     Intent switchToLogInIntent = new Intent(this, LogInOutActivity.class);
                     startActivity(switchToLogInIntent);
+                    break;
+
+                case R.id.nav_logout:
+                    auth.signOut();
+                    Intent switchToLogOutIntent = new Intent(this, LogInOutActivity.class);
+                    startActivity(switchToLogOutIntent);
                     break;
 
                 case R.id.nav_userInfo:

@@ -216,11 +216,9 @@ public class EyeFragment extends BottomSheetDialogFragment implements EyesAdapte
             eyeColorsList.add(R.drawable.eyepurple4);
             eyeColorsList.add(R.drawable.eyepurple5);
 
+        } else {
+            insetImage();
         }
-
-
-        insetImage();
-
     }
 
 }

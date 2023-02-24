@@ -42,9 +42,19 @@
             android:title="User Dashboard"/>
 
         <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/nav_login"
-            android:title="Log in"/>
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/nav_logout"
+            android:title="Log Out"/>
+
+        <item
+            android:id="@+id/nav_userInfo"
+            android:icon="@drawable/nav_userinfo"
+            android:title="Change User Info"/>
+
+        <item
+            android:id="@+id/nav_password"
+            android:icon="@drawable/nav_password"
+            android:title="Change Password"/>
 
     </group>
 

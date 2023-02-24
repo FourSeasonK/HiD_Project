@@ -40,6 +40,8 @@ public class IconColorAcdapter extends RecyclerView.Adapter<IconColorAcdapter.Ey
         result.add(R.drawable.circleblue);
         result.add(R.drawable.circledarkblue);
         result.add(R.drawable.circlepurple);
+//        result.add(R.drawable.circleblack);
+//        result.add(R.drawable.circlewhite);
 
         return result;
     }

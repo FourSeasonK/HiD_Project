@@ -19,8 +19,10 @@ import android.widget.Toast;
 
 import com.example.hid.R;
 import com.example.hid.activities.NavigationActivity;
+import com.example.hid.created.fragment.DrawFragment;
 import com.example.hid.created.fragment.EyeFragment;
 import com.example.hid.created.fragment.ImageFragment;
+import com.example.hid.created.fragment.LineFragment;
 import com.example.hid.created.fragment.LipFragment;
 import com.example.hid.created.fragment.NoseFragment;
 import com.example.hid.created.fragment.ShapeFragment;
@@ -72,7 +74,7 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
         imgShapes = rootView.findViewById(R.id.imgShapes);
         imgFrames = rootView.findViewById(R.id.imgFrames);
         imgBackgrounds = rootView.findViewById(R.id.imgBackgrounds);
-        imgDTools = rootView.findViewById(R.id.imgDTools);
+//        imgDTools = rootView.findViewById(R.id.imgDTools);
         btnSaveD = rootView.findViewById(R.id.btnSaveCreateD);
         btnShareD = rootView.findViewById(R.id.btnShareCreateD);
 
@@ -86,11 +88,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                imgEyes.setImageResource(R.drawable.eyeselectgreen);
                imgNoses.setImageResource(R.drawable.nosegray);
                imgLips.setImageResource(R.drawable.lipgray);
-//               imgLines.setImageResource(R.drawable.linegray);
+               imgLines.setImageResource(R.drawable.linegray);
                imgShapes.setImageResource(R.drawable.shapegray);
                imgFrames.setImageResource(R.drawable.framegray);
                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-               imgDTools.setImageResource(R.drawable.drawgray);
+//               imgDTools.setImageResource(R.drawable.drawgray);
 
                EyeFragment eyeFragment = EyeFragment.getInstance();
                eyeFragment.setListener(CreateMyDActivity.this);
@@ -104,11 +106,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                imgEyes.setImageResource(R.drawable.eyegray);
                imgNoses.setImageResource(R.drawable.noseselectgreen);
                imgLips.setImageResource(R.drawable.lipgray);
-//               imgLines.setImageResource(R.drawable.linegray);
+               imgLines.setImageResource(R.drawable.linegray);
                imgShapes.setImageResource(R.drawable.shapegray);
                imgFrames.setImageResource(R.drawable.framegray);
                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-               imgDTools.setImageResource(R.drawable.drawgray);
+//               imgDTools.setImageResource(R.drawable.drawgray);
 
                NoseFragment noseFragment = NoseFragment.getInstance();
                noseFragment.setListener(CreateMyDActivity.this);
@@ -122,11 +124,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                imgEyes.setImageResource(R.drawable.eyegray);
                imgNoses.setImageResource(R.drawable.nosegray);
                imgLips.setImageResource(R.drawable.lipselectgreen);
-//               imgLines.setImageResource(R.drawable.linegray);
+               imgLines.setImageResource(R.drawable.linegray);
                imgShapes.setImageResource(R.drawable.shapegray);
                imgFrames.setImageResource(R.drawable.framegray);
                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-               imgDTools.setImageResource(R.drawable.drawgray);
+//               imgDTools.setImageResource(R.drawable.drawgray);
 
                LipFragment lipFragment = LipFragment.getInstance();
                lipFragment.setListener(CreateMyDActivity.this);
@@ -134,18 +136,22 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
            }
        });
 
-//       imgLines.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//               imgEyes.setImageResource(R.drawable.eyegray);
-//               imgNoses.setImageResource(R.drawable.nosegray);
-//               imgLips.setImageResource(R.drawable.lipgray);
-//               imgLines.setImageResource(R.drawable.lineselectgreen);
-//               imgShapes.setImageResource(R.drawable.shapegray);
-//               imgBackgrounds.setImageResource(R.drawable.backgroundgray);
+       imgLines.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               imgEyes.setImageResource(R.drawable.eyegray);
+               imgNoses.setImageResource(R.drawable.nosegray);
+               imgLips.setImageResource(R.drawable.lipgray);
+               imgLines.setImageResource(R.drawable.lineselectgreen);
+               imgShapes.setImageResource(R.drawable.shapegray);
+               imgBackgrounds.setImageResource(R.drawable.backgroundgray);
 //               imgDTools.setImageResource(R.drawable.drawgray);
-//           }
-//       });
+
+               LineFragment lineFragment = LineFragment.getInstance();
+               lineFragment.setListener(CreateMyDActivity.this);
+               lineFragment.show(getSupportFragmentManager(), lineFragment.getTag());
+           }
+       });
 
        imgShapes.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -153,11 +159,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                imgEyes.setImageResource(R.drawable.eyegray);
                imgNoses.setImageResource(R.drawable.nosegray);
                imgLips.setImageResource(R.drawable.lipgray);
-//               imgLines.setImageResource(R.drawable.linegray);
+               imgLines.setImageResource(R.drawable.linegray);
                imgShapes.setImageResource(R.drawable.shapeselectgreen);
                imgFrames.setImageResource(R.drawable.framegray);
                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-               imgDTools.setImageResource(R.drawable.drawgray);
+//               imgDTools.setImageResource(R.drawable.drawgray);
 
                ShapeFragment shapeFragment = ShapeFragment.getInstance();
                shapeFragment.setListener(CreateMyDActivity.this);
@@ -171,11 +177,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                 imgEyes.setImageResource(R.drawable.eyegray);
                 imgNoses.setImageResource(R.drawable.nosegray);
                 imgLips.setImageResource(R.drawable.lipgray);
-//               imgLines.setImageResource(R.drawable.linegray);
+               imgLines.setImageResource(R.drawable.linegray);
                 imgShapes.setImageResource(R.drawable.shapegray);
                 imgFrames.setImageResource(R.drawable.frameselectgreen);
                 imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-                imgDTools.setImageResource(R.drawable.drawgray);
+//                imgDTools.setImageResource(R.drawable.drawgray);
 
                 ImageFragment imageFragment = ImageFragment.getInstance();
                 imageFragment.setListener(CreateMyDActivity.this);
@@ -190,11 +196,11 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                 imgEyes.setImageResource(R.drawable.eyegray);
                 imgNoses.setImageResource(R.drawable.nosegray);
                 imgLips.setImageResource(R.drawable.lipgray);
-//                imgLines.setImageResource(R.drawable.linegray);
+                imgLines.setImageResource(R.drawable.linegray);
                 imgShapes.setImageResource(R.drawable.shapegray);
                 imgFrames.setImageResource(R.drawable.framegray);
                 imgBackgrounds.setImageResource(R.drawable.imageselectgreen);
-                imgDTools.setImageResource(R.drawable.drawgray);
+//                imgDTools.setImageResource(R.drawable.drawgray);
 
                 //Bring the image
                 Intent intent = new Intent();
@@ -205,19 +211,23 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
             }
         });
 
-        imgDTools.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imgEyes.setImageResource(R.drawable.eyegray);
-                imgNoses.setImageResource(R.drawable.nosegray);
-                imgLips.setImageResource(R.drawable.lipgray);
-//                imgLines.setImageResource(R.drawable.linegray);
-                imgShapes.setImageResource(R.drawable.shapegray);
-                imgFrames.setImageResource(R.drawable.framegray);
-                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
-                imgDTools.setImageResource(R.drawable.toolselectgreen);
-            }
-        });
+//        imgDTools.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                imgEyes.setImageResource(R.drawable.eyegray);
+//                imgNoses.setImageResource(R.drawable.nosegray);
+//                imgLips.setImageResource(R.drawable.lipgray);
+////                imgLines.setImageResource(R.drawable.linegray);
+//                imgShapes.setImageResource(R.drawable.shapegray);
+//                imgFrames.setImageResource(R.drawable.framegray);
+//                imgBackgrounds.setImageResource(R.drawable.backgroundgray);
+//                imgDTools.setImageResource(R.drawable.toolselectgreen);
+//
+//                DrawFragment drawFragment = DrawFragment.getInstance();
+//                drawFragment.setListener(CreateMyDActivity.this);
+//                drawFragment.show(getSupportFragmentManager(),drawFragment.getTag());
+//            }
+//        });
 
 
         //save
@@ -229,9 +239,6 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                 Log.d(TAG, "Click here2");
             }
         });
-
-
-
     }
 
 

@@ -17,16 +17,19 @@
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_create_my_dactivity2.xml" value="0.2916666666666667" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_dboard.xml" value="0.36102564102564105" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_do_not_blame.xml" value="0.1" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_draw_adapter.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_edit_image.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_eye_color_acdapter.xml" value="0.34717948717948716" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_eyes_adapter.xml" value="0.35648148148148145" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_eyes_fragment.xml" value="0.35648148148148145" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_frame_adapter.xml" value="0.36102564102564105" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_home.xml" value="0.536" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_line_adapter.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_lip_adapter.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_log_in_out.xml" value="0.264" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_navigation.xml" value="0.2833333333333333" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_navigationlogin.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_nose_adapter.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_reset_password.xml" value="0.2833333333333333" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_shape_adapter.xml" value="0.36666666666666664" />
@@ -36,16 +39,20 @@
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_upload_forum.xml" value="0.1" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/activity_user_dashboard.xml" value="0.1" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/app_bar_base.xml" value="0.1" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/app_bar_baselogin.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/forum_item.xml" value="0.264" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/forum_item_header.xml" value="0.33425925925925926" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_draw.xml" value="0.1712962962962963" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_eye.xml" value="0.264" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_eyes_fagment.xml" value="0.21666666666666667" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_image.xml" value="0.18181818181818182" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_line.xml" value="0.35260416666666666" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_lip.xml" value="0.35260416666666666" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_nose.xml" value="0.36666666666666664" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/fragment_shape.xml" value="0.35260416666666666" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/layout/nav_header.xml" value="0.28229166666666666" />
         <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/menu/nav_menu.xml" value="0.28229166666666666" />
+        <entry key="..\:/temp/winter2023/csis4495/submission/HiD/app/src/main/res/menu/nav_menuLogin.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

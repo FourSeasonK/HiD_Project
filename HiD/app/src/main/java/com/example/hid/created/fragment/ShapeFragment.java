@@ -50,13 +50,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
     }
 
     public void insetImage(){
-        shapeColorsList.add(R.drawable.line1);
-//        shapeColorsList.add(R.drawable.line2);
-        shapeColorsList.add(R.drawable.line3);
-        shapeColorsList.add(R.drawable.line4);
-        shapeColorsList.add(R.drawable.line5);
-        shapeColorsList.add(R.drawable.line6);
-
         shapeColorsList.add(R.drawable.shapel1);
         shapeColorsList.add(R.drawable.shapel2);
         shapeColorsList.add(R.drawable.shapel3);
@@ -167,12 +160,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
         shapeColorsList = new ArrayList<>();
 
         if (index == 0) {
-            shapeColorsList.add(R.drawable.linered1);
-//            shapeColorsList.add(R.drawable.linered2);
-            shapeColorsList.add(R.drawable.linered3);
-            shapeColorsList.add(R.drawable.linered4);
-            shapeColorsList.add(R.drawable.linered5);
-            shapeColorsList.add(R.drawable.linered6);
 
             shapeColorsList.add(R.drawable.shapelred1);
             shapeColorsList.add(R.drawable.shapelred2);
@@ -187,12 +174,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapefred5);
 
         } else if(index == 1){
-            shapeColorsList.add(R.drawable.lineorange1);
-//            shapeColorsList.add(R.drawable.lineorange2);
-            shapeColorsList.add(R.drawable.lineorange3);
-            shapeColorsList.add(R.drawable.lineorange4);
-            shapeColorsList.add(R.drawable.lineorange5);
-            shapeColorsList.add(R.drawable.lineorange6);
 
             shapeColorsList.add(R.drawable.shapelorange1);
             shapeColorsList.add(R.drawable.shapelorange2);
@@ -207,12 +188,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapeforange5);
 
         } else if(index == 2){
-            shapeColorsList.add(R.drawable.lineyellow1);
-//            shapeColorsList.add(R.drawable.lineyellow2);
-            shapeColorsList.add(R.drawable.lineyellow3);
-            shapeColorsList.add(R.drawable.lineyellow4);
-            shapeColorsList.add(R.drawable.lineyellow5);
-            shapeColorsList.add(R.drawable.lineyellow6);
 
             shapeColorsList.add(R.drawable.shapelyellow1);
             shapeColorsList.add(R.drawable.shapelyellow2);
@@ -227,12 +202,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapefyellow5);
 
         } else if(index == 3){
-            shapeColorsList.add(R.drawable.linegreen1);
-//            shapeColorsList.add(R.drawable.linegreen2);
-            shapeColorsList.add(R.drawable.linegreen3);
-            shapeColorsList.add(R.drawable.linegreen4);
-            shapeColorsList.add(R.drawable.linegreen5);
-            shapeColorsList.add(R.drawable.linegreen6);
 
             shapeColorsList.add(R.drawable.shapelgreen1);
             shapeColorsList.add(R.drawable.shapelgreen2);
@@ -247,12 +216,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapefgreen5);
 
         } else if(index == 4){
-            shapeColorsList.add(R.drawable.linelblue1);
-//            shapeColorsList.add(R.drawable.linelblue2);
-            shapeColorsList.add(R.drawable.linelblue3);
-            shapeColorsList.add(R.drawable.linelblue4);
-            shapeColorsList.add(R.drawable.linelblue5);
-            shapeColorsList.add(R.drawable.linelblue6);
 
             shapeColorsList.add(R.drawable.shapellblue1);
             shapeColorsList.add(R.drawable.shapellblue2);
@@ -267,12 +230,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapeflblue5);
 
         } else if(index == 5){
-            shapeColorsList.add(R.drawable.linedblue1);
-//            shapeColorsList.add(R.drawable.linedblue2);
-            shapeColorsList.add(R.drawable.linedblue3);
-            shapeColorsList.add(R.drawable.linedblue4);
-            shapeColorsList.add(R.drawable.linedblue5);
-            shapeColorsList.add(R.drawable.linedblue6);
 
             shapeColorsList.add(R.drawable.shapeldblue1);
             shapeColorsList.add(R.drawable.shapeldblue2);
@@ -287,12 +244,6 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapefdblue5);
 
         } else if(index == 6){
-            shapeColorsList.add(R.drawable.linepurple1);
-//            shapeColorsList.add(R.drawable.linepurple2);
-            shapeColorsList.add(R.drawable.linepurple3);
-            shapeColorsList.add(R.drawable.linepurple4);
-            shapeColorsList.add(R.drawable.linepurple5);
-            shapeColorsList.add(R.drawable.linepurple6);
 
             shapeColorsList.add(R.drawable.shapelpurple1);
             shapeColorsList.add(R.drawable.shapelpurple2);
@@ -306,8 +257,10 @@ public class ShapeFragment extends BottomSheetDialogFragment implements ShapeAda
             shapeColorsList.add(R.drawable.shapefpurple4);
             shapeColorsList.add(R.drawable.shapefpurple5);
 
+        } else {
+            insetImage();
         }
-        insetImage();
+
     }
 
 }

@@ -202,11 +202,9 @@ public class NoseFragment extends BottomSheetDialogFragment implements NoseAdapt
             noseColorsList.add(R.drawable.nosepurple4);
             noseColorsList.add(R.drawable.nosepurple5);
 
+        } else {
+            insetImage();
         }
-
-
-        insetImage();
-
     }
 
 }

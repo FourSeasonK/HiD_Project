@@ -200,9 +200,10 @@ public class LipFragment extends BottomSheetDialogFragment implements LipAdapter
             lipColorsList.add(R.drawable.lippurple3);
             lipColorsList.add(R.drawable.lippurple4);
             lipColorsList.add(R.drawable.lippurple5);
-        }
 
-        insetImage();
+        } else {
+            insetImage();
+        }
     }
 
 }
