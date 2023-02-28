@@ -122,7 +122,7 @@ public class CreateAccountActivity extends NavigationActivity {
                     edit.putString("LASTNAME", strLastName);
                     edit.commit();
 
-                    Intent intent = new Intent(CreateAccountActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, LogInOutActivity.class);
 //                    intent.putExtra("LOGINVALUE", logIn);
 //                    intent.putExtra("FIRSTNAME", strFirstName);
 //                    intent.putExtra("LASTNAME", strLastName);

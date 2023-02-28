@@ -75,7 +75,7 @@ public class LogInOutActivity extends AppCompatActivity {
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCreateAccount();
+                onLogIn();
             }
         });
 
@@ -97,7 +97,7 @@ public class LogInOutActivity extends AppCompatActivity {
     }
 
 
-    public void onCreateAccount(){
+    public void onLogIn(){
 
         String loginEmail = email.getText().toString().trim();
         String loginPassword = password.getText().toString().trim();
