@@ -1,6 +1,5 @@
-package com.example.hid.activities;
+package com.example.hid.dforum;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,7 +9,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.hid.R;
-import com.example.hid.adapter.ShareForumAdapter;
+import com.example.hid.activities.NavigationActivity;
+import com.example.hid.dforum.adapter.ShareForumAdapter;
 import com.example.hid.databinding.ActivityShareforumBinding;
 import com.example.hid.model.Shareforum;
 

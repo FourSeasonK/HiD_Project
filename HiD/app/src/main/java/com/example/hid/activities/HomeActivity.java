@@ -6,8 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.hid.R;
+import com.example.hid.boxbreath.BoxBreathingActivity;
+import com.example.hid.contactpeople.ContactPeopleActivity;
 import com.example.hid.created.CreateMyDActivity;
 import com.example.hid.databinding.ActivityHomeBinding;
+import com.example.hid.dforum.ShareForumActivity;
+import com.example.hid.lovemyself.DoNotBlameActivity;
 
 public class HomeActivity extends NavigationActivity {
 

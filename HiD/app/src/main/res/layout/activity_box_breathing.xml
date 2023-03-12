@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/greenback"
-    tools:context=".activities.BoxBreathingActivity">
+    tools:context=".boxbreath.BoxBreathingActivity">
 
     <ImageView
         android:id="@+id/imgBoxBSquare1"
@@ -166,25 +166,51 @@
         android:id="@+id/txtCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:text="0"
+        android:layout_marginTop="20dp"
+        android:text=""
         android:textColor="@color/countGreen"
-        android:textSize="50dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBoxbreathingTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtProcess" />
 
     <TextView
         android:id="@+id/txtCountDescribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="0"
+        android:layout_marginTop="100dp"
+        android:text="How many rounds?"
         android:textColor="@color/deepGreen"
-        android:textSize="30dp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCount" />
+
+    <TextView
+        android:id="@+id/txtProcess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text=""
+        android:textSize="30dp"
+        android:textColor="@color/deepGreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBoxbreathingTitle" />
+
+    <EditText
+        android:id="@+id/edittxtUserNumInput"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:textAlignment="center"
+        android:inputType="numberSigned"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCountDescribe" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

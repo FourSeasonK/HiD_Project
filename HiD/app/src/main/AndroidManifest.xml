@@ -4,11 +4,13 @@
     package="com.example.hid">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".lovemyself.NotificationApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -52,13 +54,13 @@
             android:name=".activities.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.UploadDForumActivity"
+            android:name=".dforum.UploadDForumActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ShareForumActivity"
+            android:name=".dforum.ShareForumActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ContactPeopleActivity"
+            android:name=".contactpeople.ContactPeopleActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ResetPasswordActivity"
@@ -74,10 +76,10 @@
             android:name=".created.CreateMyDActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DoNotBlameActivity"
+            android:name=".lovemyself.DoNotBlameActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.BoxBreathingActivity"
+            android:name=".boxbreath.BoxBreathingActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SplashActivity"
@@ -106,6 +108,18 @@
             <!-- android:exported="false" -->
             <!-- android:theme="@style/CommunicateTheme" /> -->
         </activity>
+
+        <receiver
+            android:name=".lovemyself.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+        </receiver>
+
+
     </application>
 
 </manifest>

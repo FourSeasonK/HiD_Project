@@ -3,24 +3,23 @@ package com.example.hid.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hid.R;
+import com.example.hid.boxbreath.BoxBreathingActivity;
+import com.example.hid.contactpeople.ContactPeopleActivity;
 import com.example.hid.created.CreateMyDActivity;
+import com.example.hid.dforum.ShareForumActivity;
+import com.example.hid.lovemyself.DoNotBlameActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -144,6 +143,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 case R.id.nav_home:
                     Intent switchToHomeIntent = new Intent(this, HomeActivity.class);
                     startActivity(switchToHomeIntent);
+//                    MenuView.ItemView icon = findViewById(menuItem.getItemId());
+//                    icon.setTitle("Somethiing");
                     break;
 
                 case R.id.nav_boxBreath:

@@ -1,16 +1,10 @@
 package com.example.hid.tools;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.hid.R;
-import com.example.hid.adapter.ShareForumAdapter;
-
-import java.util.List;
 
 public class EditingToolsAdapter extends RecyclerView.Adapter<EditingToolsAdapter.toolsViewHolder> {
 

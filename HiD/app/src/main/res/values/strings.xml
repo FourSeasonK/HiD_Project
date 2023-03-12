@@ -47,7 +47,8 @@
 
     <!--    Do No Blame me Activity-->
     <string name="DoNoBlameTitle">Don\'t Blame me</string>
-    <string name="DoNotBBtn">Save &amp; Notification</string>
+    <string name="DoNotBSaveBtn">Save</string>
+    <string name="DoNotBSetNotificationBtn">Set Notification</string>
     <string name="txtSubTitle1">SITUATION</string>
     <string name="txtSubDescribe1">Describe the situation (100)</string>
     <string name="txtSubTitle2">HUG MYSELF</string>

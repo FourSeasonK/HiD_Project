@@ -1,4 +1,4 @@
-package com.example.hid.adapter;
+package com.example.hid.dforum.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
