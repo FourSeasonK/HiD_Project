@@ -2,39 +2,72 @@ package com.example.hid.model;
 
 public class CreateMyD {
 
-    private String createDdate;
-    private int myDImage;
-    private boolean share;
+    private String title;
+    private String myDName;
+    private String myDDate;
+    private String myMood;
+    private String myDContents;
+    private String myDImageUrl;
 
-    public CreateMyD() {}
+    public CreateMyD(){}
 
-    public CreateMyD(String createDdate, int myDImage, boolean share) {
-        this.createDdate = createDdate;
-        this.myDImage = myDImage;
-        this.share = share;
+    public CreateMyD(String title, String myDName, String myDDate, String myMood, String myDContents, String myDImageUrl) {
+        if(title.trim().equals("")){
+            title = "No Title";
+        }
+
+        this.title = title;
+        this.myDDate = myDDate;
+        this.myMood = myMood;
+        this.myDContents = myDContents;
+        this.myDImageUrl = myDImageUrl;
     }
 
-    public String getCreateDdate() {
-        return createDdate;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCreateDdate(String createDdate) {
-        this.createDdate = createDdate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getMyDImage() {
-        return myDImage;
+    public String getMyDName() {
+        return myDName;
     }
 
-    public void setMyDImage(int myDImage) {
-        this.myDImage = myDImage;
+    public void setMyDName(String myDName) {
+        this.myDName = myDName;
     }
 
-    public boolean isShare() {
-        return share;
+    public String getMyDDate() {
+        return myDDate;
     }
 
-    public void setShare(boolean share) {
-        this.share = share;
+    public void setMyDDate(String myDDate) {
+        this.myDDate = myDDate;
+    }
+
+    public String getMyMood() {
+        return myMood;
+    }
+
+    public void setMyMood(String myMood) {
+        this.myMood = myMood;
+    }
+
+    public String getMyDContents() {
+        return myDContents;
+    }
+
+    public void setMyDContents(String myDContents) {
+        this.myDContents = myDContents;
+    }
+
+    public String getMyDImageUrl() {
+        return myDImageUrl;
+    }
+
+    public void setMyDImageUrl(String myDImageUrl) {
+        this.myDImageUrl = myDImageUrl;
     }
 }

@@ -3,11 +3,13 @@ package com.example.hid.boxbreath;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hid.R;
 import com.example.hid.activities.NavigationActivity;
@@ -23,7 +25,7 @@ public class BoxBreathingActivity extends NavigationActivity {
     ActivityBoxBreathingBinding activityBoxBreathingBinding;
 
     ImageView firstStart, secondStart, thirdStart, fourthStart, arrowRight,
-                arrowDown, arrowLeft, arrowUp, imgSave, imgPlay, imgReset;
+                arrowDown, arrowLeft, arrowUp, imgPlay, imgReset;
     TextView txtProcess, breathCount;
     EditText countUserNum;
     int shortAnimationDuration;
@@ -58,7 +60,6 @@ public class BoxBreathingActivity extends NavigationActivity {
         arrowDown = rootView.findViewById(R.id.imgArrowDown);
         arrowLeft = rootView.findViewById(R.id.imgArrowLeft);
         arrowUp = rootView.findViewById(R.id.imgArrowUp);
-        imgSave = rootView.findViewById(R.id.imgbtnBoxBSave);
         imgPlay = rootView.findViewById(R.id.imgbtnBoxBPlay);
         imgReset = rootView.findViewById(R.id.imgbtnBoxBRest);
 
@@ -76,56 +77,56 @@ public class BoxBreathingActivity extends NavigationActivity {
 
         playcheck = true;
 
-        imgSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
         imgPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String countStr = countUserNum.getText().toString();
-                int count = Integer.parseInt(countStr);
-                Log.d(TAG, "UerInputStr" + countStr);
-                Log.d(TAG, "UerInputInt" + count);
 
-                if(playcheck == true) {
-                    imgPlay.setImageResource(R.drawable.btnstopcircle);
+                if(TextUtils.isEmpty(countStr) || countStr.equals("")){
+                    Toast.makeText(BoxBreathingActivity.this, "Please enter the rounds", Toast.LENGTH_SHORT).show();
 
-                    for(int i = 0; i < count; i++){
+                } else {
+                    int count = Integer.parseInt(countStr);
+                    Log.d(TAG, "UerInputStr" + countStr);
+                    Log.d(TAG, "UerInputInt" + count);
 
-                        controlImgView();
-                    }
-                    playSoundEffect(count);
-                    displayTextViews(count);
+                    if(playcheck == true) {
+                        imgPlay.setImageResource(R.drawable.btnstopcircle);
+                        txtProcess.setVisibility(View.VISIBLE);
+
+                        for(int i = 0; i < count; i++){
+
+                            controlImgView();
+                        }
+                        playSoundEffect(count);
+                        displayTextViews(count);
 //                    controlImgView();
 //                    playSoundEffect();
-                    //displayTextViews();
+                        //displayTextViews();
 
-                    playcheck = false;
+                        playcheck = false;
 
-                } else if(playcheck == false){
-                    imgPlay.setImageResource(R.drawable.btnplaycircle);
+                    } else if(playcheck == false){
+                        imgPlay.setImageResource(R.drawable.btnplaycircle);
 
-                    firstStart.setVisibility(View.GONE);
-                    arrowRight.setVisibility(View.GONE);
-                    secondStart.setVisibility(View.GONE);
-                    arrowDown.setVisibility(View.GONE);
-                    thirdStart.setVisibility(View.GONE);
-                    arrowLeft.setVisibility(View.GONE);
-                    fourthStart.setVisibility(View.GONE);
-                    arrowUp.setVisibility(View.GONE);
+                        txtProcess.setVisibility(View.INVISIBLE);
 
-                    mediaPlayer.stop();
-                    handlerSound = new Handler();
-                    handlerText = new Handler();
+                        firstStart.setVisibility(View.GONE);
+                        arrowRight.setVisibility(View.GONE);
+                        secondStart.setVisibility(View.GONE);
+                        arrowDown.setVisibility(View.GONE);
+                        thirdStart.setVisibility(View.GONE);
+                        arrowLeft.setVisibility(View.GONE);
+                        fourthStart.setVisibility(View.GONE);
+                        arrowUp.setVisibility(View.GONE);
 
-                    playcheck = true;
+                        mediaPlayer.stop();
+                        handlerSound = new Handler();
+                        handlerText = new Handler();
+
+                        playcheck = true;
+                    }
                 }
-
 
             }
         });
@@ -134,11 +135,22 @@ public class BoxBreathingActivity extends NavigationActivity {
             @Override
             public void onClick(View view) {
 
-                txtProcess.setText("");
+//                txtProcess.setText("");
+                txtProcess.setVisibility(View.INVISIBLE);
                 breathCount.setText("");
                 countUserNum.setText("");
                 imgPlay.setImageResource(R.drawable.btnplaycircle);
 
+                firstStart.setVisibility(View.GONE);
+                arrowRight.setVisibility(View.GONE);
+                secondStart.setVisibility(View.GONE);
+                arrowDown.setVisibility(View.GONE);
+                thirdStart.setVisibility(View.GONE);
+                arrowLeft.setVisibility(View.GONE);
+                fourthStart.setVisibility(View.GONE);
+                arrowUp.setVisibility(View.GONE);
+
+                mediaPlayer.stop();
                 handlerSound.removeCallbacks(runnableSound );
                 handlerText = new Handler();
             }

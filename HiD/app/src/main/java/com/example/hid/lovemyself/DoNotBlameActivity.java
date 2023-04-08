@@ -58,7 +58,7 @@ public class DoNotBlameActivity extends NavigationActivity {
     private NotificationManagerCompat notificationManager;
     private EditText situationDB;
     private EditText describeDB;
-    private Button btnSave, btnNotification;
+    private Button btnNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class DoNotBlameActivity extends NavigationActivity {
 
         notificationManager = NotificationManagerCompat.from(this);
         dao = new HiDUserInformationDAO();
-        loadData();
+
 //        int sizeOfList = solutionsList.size();
 //        int randomNum = ThreadLocalRandom.current().nextInt(0,sizeOfList - 1);
 
@@ -76,26 +76,20 @@ public class DoNotBlameActivity extends NavigationActivity {
 
         situationDB = rootView.findViewById(R.id.edittxtDBSituation);
         describeDB = rootView.findViewById(R.id.edittxtDBDescribe);
-        btnSave = rootView.findViewById(R.id.btnDoNotBSave);
         btnNotification = rootView.findViewById(R.id.btnDoNotBNotification);
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                saveNotification();
-            }
-        });
 
         btnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                situation = situationDB.getText().toString();
+                solution = describeDB.getText().toString();
+
                 createNotificationChannels();
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,00);
-                calendar.set(Calendar.MINUTE,28);
+                calendar.set(Calendar.HOUR_OF_DAY,21);
+                calendar.set(Calendar.MINUTE,31);
                 calendar.set(Calendar.SECOND,00);
 
                 if(Calendar.getInstance().after(calendar)){
@@ -104,17 +98,22 @@ public class DoNotBlameActivity extends NavigationActivity {
 
                 Intent intent = new Intent(DoNotBlameActivity.this, NotificationReceiver.class);
                 intent.putExtra("toastMessage", "Happy Day");
-                intent.putExtra("SITUATION", situationList.get(0));
-                intent.putExtra("SOLUTION", solutionsList.get(0));
-                Log.d(TAG, "situation intent: " + situationList.get(0));
-                Log.d(TAG, "solutions intent: " + solutionsList.get(0));
+                intent.putExtra("SITUATION", situation);
+                intent.putExtra("SOLUTION", solution);
+//                intent.putExtra("SITUATION", situationList.get(0));
+//                intent.putExtra("SOLUTION", solutionsList.get(0));
+                Log.d(TAG, "situation intent: " + situation);
+                Log.d(TAG, "solutions intent: " + solution);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                     alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                    Toast.makeText(DoNotBlameActivity.this, "Set Notification Success", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
     }
@@ -137,122 +136,6 @@ public class DoNotBlameActivity extends NavigationActivity {
         }
     }
 
-    private void saveNotification(){
-//    private void saveNotification(NotificationDBM notificationDBM){
-//        removeNotification();
-        situation = situationDB.getText().toString();
-        solution = describeDB.getText().toString();
-
-        today = Calendar.getInstance().getTime();
-        dateFormat = new SimpleDateFormat("MM/dd/yy");
-        todayDate = dateFormat.format(today);
-        NotificationDBM notificationDBM = new NotificationDBM(todayDate, situation, solution);
-//        notificationList.add(notificationDBM);
-
-        dao.createNotification(key1, "NotificationDBM", notificationDBM).addOnSuccessListener(new OnSuccessListener<Void>() {
-//        dao.createNotification("0", notificationDBM).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-                Toast.makeText(DoNotBlameActivity.this, "Update Success", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(DoNotBlameActivity.this, "Update Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void removeNotification(){
-
-        dao.remove(key1, "NotificationDBM").addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-
-                Toast.makeText(DoNotBlameActivity.this, "Remove Success", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(DoNotBlameActivity.this, "Remove Failed", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void loadData() {
-        dao.get().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                notificationOJList.clear();
-                for(DataSnapshot data : snapshot.getChildren()){
-
-                    key1 = data.getKey();
-                    Log.d(TAG, "key1: " + key1);
-
-//                    GenericTypeIndicator<HashMap<String, HiDUserInformation>> objectsGTypeInd = new GenericTypeIndicator<HashMap<String, HiDUserInformation>>() {};
-//                    Map<String, HiDUserInformation> hiDUserInformationMap = data.getValue(objectsGTypeInd);
-//                    ArrayList<HiDUserInformation> hiDUserInformationList = new ArrayList<HiDUserInformation>(hiDUserInformationMap.values());
-
-                    Log.d(TAG,"Load data");
-                    HiDUserInformation hiDUserInformation = data.getValue(HiDUserInformation.class);
-                    userInforList.add(hiDUserInformation);
-                    Log.d(TAG, "userInforList: " + userInforList.get(0).getUserEmail());
-
-
-                    HiDUserInformation notification = new HiDUserInformation(hiDUserInformation.getUserEmail(), hiDUserInformation.getUserFirstName(), hiDUserInformation.getUserFirstName(), hiDUserInformation.getNotificationDBM());
-                    notificationOJList.add(notification);
-                    Log.d(TAG, "notificationOJList: " + notificationOJList.get(0).getNotificationDBM());
-
-                    key2 = data.child("NotificationDBM").getKey();
-                    Log.d(TAG, "key2: " + key2);
-
-
-//                    List<NotificationDBM> notificationDBMs = notificationOJList.get(0).getNotificationDBM();
-//                    //Log.d(TAG, "notification situation: " + notificationDBMs.get(0).getSituation());
-
-                    getNotification();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e(TAG, "Failed to load Notification List");
-            }
-        });
-    }
-
-    private void getNotification(){
-
-        int size = notificationOJList.size();
-        Log.d(TAG, "getNotification");
-        for(int i = 0; i < size; i++){
-
-//            Map<String, NotificationDBM> notificationDBMsMap = notificationOJList.get(i).getNotificationDBMMap();
-//            ArrayList<NotificationDBM> objectArrayList = new ArrayList<NotificationDBM>();
-//            objectArrayList.add(notificationDBMsMap.get(i));
-//            Log.d(TAG, "objectArrayList" + notificationDBMsMap.get(i));
-
-            List<NotificationDBM> notificationDBMs = notificationOJList.get(i).getNotificationDBM();
-//            NotificationDBM notificationDBMs = notificationOJList.get(i).getNotificationDBM();
-            notificationList.add(notificationDBMs.get(i));
-//            notificationList.add(notificationDBMs.get(i));
-
-            situationList.add(notificationList.get(i).getSituation());
-//            situation = notificationDBMs.get(i).getSituation();
-            Log.d(TAG, "situation: " +situationList.get(i));
-
-
-//            solution = notificationDBMs.get(i).getSolution();
-            solutionsList.add(notificationList.get(i).getSolution());
-//            solutionsList.add(notificationDBMsMap.get(i).getSolution());
-            Log.d(TAG, "solutions: " + solutionsList.get(i));
-//            Log.d(TAG, "Notification Situation: " + notificationDBMs.get(i).getSituation());
-//            Log.d(TAG, "Notification Solution: " + notificationDBMs.get(i).getSolution());
-
-        }
-    }
 
     public void sendOnChannel1(View v) {
 

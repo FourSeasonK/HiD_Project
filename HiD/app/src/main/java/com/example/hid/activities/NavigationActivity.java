@@ -3,16 +3,20 @@ package com.example.hid.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hid.R;
 import com.example.hid.boxbreath.BoxBreathingActivity;
@@ -27,6 +31,8 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 
 public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = NavigationActivity.class.getSimpleName();
 
     protected FrameLayout frameLayout;
     private Context context;
@@ -46,30 +52,15 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-//        auth = FirebaseAuth.getInstance();
-//
-//        authListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//
-//                if (user != null) {
-//                    checkUser = true;
-//                } else {
-//                    checkUser = false;
-//                }
-//            }
-//        };
+            initView();
 
-        initView();
-//        checkCurrentUser(userInfo);
-//        loginView();
+
         frameLayout = (FrameLayout) findViewById(R.id.container);
-        drawer = findViewById(R.id.drawer_layout);
+//        drawer = findViewById(R.id.drawer_layout);
 //        logInOut = findViewById(R.id.nav_login);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-
-        navigationView.setNavigationItemSelectedListener(this);
+//        NavigationView navigationView = findViewById(R.id.nav_view);
+//
+//        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
@@ -92,6 +83,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 //    }
 
     private void initView(){
+
+        //checkUser();
 
         toolbar = findViewById(R.id.toolbar);
         drawer = findViewById(R.id.drawer_layout);
@@ -162,39 +155,36 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                     startActivity(switchToCreateDIntent);
                     break;
 
-                case R.id.nav_DForum:
-                    Intent switchToDForumIntent = new Intent(this, ShareForumActivity.class);
-                    startActivity(switchToDForumIntent);
-                    break;
+//                case R.id.nav_DForum:
+//                    Intent switchToDForumIntent = new Intent(this, ShareForumActivity.class);
+//                    startActivity(switchToDForumIntent);
+//                    break;
 
                 case R.id.nav_contactP:
                     Intent switchToContactPIntent = new Intent(this, ContactPeopleActivity.class);
                     startActivity(switchToContactPIntent);
                     break;
 
-                case R.id.nav_userDashboaed:
-                    Intent switchToUserDashBIntent = new Intent(this, UserDashboardActivity.class);
+                case R.id.nav_needHelp:
+                    Intent switchToUserDashBIntent = new Intent(this, NeedHelpActivity.class);
                     startActivity(switchToUserDashBIntent);
                     break;
 
                 case R.id.nav_login:
-
-                    if(checkUser == true){
-                        menuItem.setIcon(R.drawable.nav_logout);
-                        menuItem.setTitle("Log out");
-                    }
-
                     Intent switchToLogInIntent = new Intent(this, LogInOutActivity.class);
                     startActivity(switchToLogInIntent);
                     break;
-//
+
 //                case R.id.nav_userInfo:
-//                    Intent switchToUserInfoIntent = new Intent(this, UserDashboardActivity.class);
+//                    Intent switchToUserInfoIntent = new Intent(this, UserDashboardActivityLogIn.class);
 //                    startActivity(switchToUserInfoIntent);
 //
 //                case R.id.nav_password:
-//                    Intent switchToPasswordInIntent = new Intent(this, ResetPasswordActivity.class);
+//                    Intent switchToPasswordInIntent = new Intent(this, ResetPasswordActivityLogIn.class);
 //                    startActivity(switchToPasswordInIntent);
+//                    break;
+//
+//                case R.id.nav_logout:
 //                    break;
             }
 
@@ -210,6 +200,26 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 //            super.onBackPressed();
 //        }
 //    }
+
+    public void checkUser(){
+        auth = FirebaseAuth.getInstance();
+
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if (user != null) {
+                    checkUser = true;
+                    String userEmail = user.getEmail();
+//                    Log.d(TAG, userEmail + "");
+                    Toast.makeText(NavigationActivity.this, userEmail, Toast.LENGTH_SHORT).show();
+                } else {
+                    checkUser = false;
+                }
+            }
+        };
+    }
 
     public void checkCurrentUser(ArrayList<String> userInfo) {
 

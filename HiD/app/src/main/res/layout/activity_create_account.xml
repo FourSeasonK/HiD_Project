@@ -8,7 +8,7 @@
     tools:context=".activities.CreateAccountActivity">
 
     <TextView
-        android:id="@+id/txtCreateAccountTitle"
+        android:id="@+id/txtUPUTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtCALastName"
+        android:id="@+id/txtUPUFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -32,10 +32,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreateAccountTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUTitle" />
 
     <EditText
-        android:id="@+id/edittxtCALastName"
+        android:id="@+id/edittxtUPUFirstName"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -45,10 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCALastName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUFirstName" />
 
     <TextView
-        android:id="@+id/txtCAFirtstName"
+        android:id="@+id/txtUPULastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -58,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittxtCALastName" />
+        app:layout_constraintTop_toBottomOf="@+id/edittxtUPUFirstName" />
 
     <EditText
-        android:id="@+id/edittxtCAFirstName"
+        android:id="@+id/edittxtUPULastName"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
@@ -71,10 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCAFirtstName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUPULastName" />
 
     <TextView
-        android:id="@+id/txtCAEmail"
+        android:id="@+id/txtUPUEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -84,19 +84,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittxtCAFirstName" />
+        app:layout_constraintTop_toBottomOf="@+id/edittxtUPULastName" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CA_input_layout_email"
+        android:id="@+id/UPU_input_layout_email"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCAEmail">
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUEmail">
 
         <EditText
-            android:id="@+id/edittxtCAEmail"
+            android:id="@+id/edittxtUPUEmail"
             android:layout_width="300dp"
             android:layout_height="35dp"
             android:background="@drawable/editfield"
@@ -104,11 +104,11 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCAEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUPUEmail" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txtCAPassword"
+        android:id="@+id/txtUPUPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -118,18 +118,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CA_input_layout_email" />
+        app:layout_constraintTop_toBottomOf="@+id/UPU_input_layout_email" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CA_input_layout_password"
+        android:id="@+id/UPU_input_layout_password"
         android:layout_width="300dp"
         android:layout_height="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCAPassword">
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUPassword">
 
         <EditText
-            android:id="@+id/edittxtCAPassword"
+            android:id="@+id/edittxtUPUPassword"
             android:layout_width="300dp"
             android:layout_height="35dp"
             android:background="@drawable/editfield"
@@ -137,7 +137,7 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCAPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUPUPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!--    <TextView-->
@@ -175,7 +175,7 @@
     <!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <Button
-        android:id="@+id/btnCASave"
+        android:id="@+id/btnUPUUpdate"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -185,7 +185,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CA_input_layout_password" />
+        app:layout_constraintTop_toBottomOf="@+id/UPU_input_layout_password" />
 
     <TextView
         android:id="@+id/txtMoveToLogIn"
@@ -199,7 +199,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCASave" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUPUUpdate" />
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenback2"
+    tools:context=".activities.CreateAccountActivity">
+
+    <TextView
+        android:id="@+id/txtUPUTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Hello"
+        android:textColor="@color/deepGreen"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUpdateUserInfoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/deepGreen"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUTitle" />
+
+    <TextView
+        android:id="@+id/txtUPUFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/CAFirstName"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUpdateUserInfoTitle" />
+
+    <EditText
+        android:id="@+id/edittxtUPUFirstName"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUFirstName" />
+
+    <TextView
+        android:id="@+id/txtUPULastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/CALastName"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtUPUFirstName" />
+
+    <EditText
+        android:id="@+id/edittxtUPULastName"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/editfield"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUPULastName" />
+
+    <TextView
+        android:id="@+id/txtUPUEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/CAEmail"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittxtUPULastName" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/UPU_input_layout_email"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUEmail">
+
+        <EditText
+            android:id="@+id/edittxtUPUEmail"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:background="@drawable/editfield"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUPUEmail" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/txtCAConPassword"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="@string/CAConfirmPassword"-->
+    <!--        android:textColor="@color/deepGreen"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.189"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/CA_input_layout_password" />-->
+
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/CAConfirm_input_layout_password"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="45dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/txtCAConPassword">-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/edittxtCAConPassword"-->
+    <!--            android:layout_width="300dp"-->
+    <!--            android:layout_height="35dp"-->
+    <!--            android:background="@drawable/editfield"-->
+    <!--            android:ems="10"-->
+    <!--            android:inputType="textPassword"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/txtCAConPassword" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <Button
+        android:id="@+id/btnUPUUpdate"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_bg_green"
+        android:text="Update"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UPU_input_layout_email" />
+
+    <TextView
+        android:id="@+id/txtUPUDeleteUserTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Do you want to delete an account?"
+        android:textColor="@color/deepGreen"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUPUUpdate" />
+
+    <Button
+        android:id="@+id/btnUPUDeleteUser"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg_green"
+        android:text="Delete Account"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUPUDeleteUserTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

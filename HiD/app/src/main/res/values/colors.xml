@@ -22,4 +22,5 @@
     <color name="tableDeepBlue">#527BA2</color>
     <color name="tableLightBlue">#DFF0FF</color>
     <color name="tableHeaderGreen">#6FA98D</color>
+    <color name="lightGray">#E3E2E2</color>
 </resources>

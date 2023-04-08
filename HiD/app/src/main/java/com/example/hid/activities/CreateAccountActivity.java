@@ -1,10 +1,8 @@
 package com.example.hid.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,8 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hid.R;
+import com.example.hid.dao.HiDUserInformationDAO;
 import com.example.hid.databinding.ActivityCreateAccountBinding;
+import com.example.hid.model.HiDUserInformation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
@@ -37,6 +39,7 @@ public class CreateAccountActivity extends NavigationActivity {
     String strFirstName, strLastName, strEmail, strPassword;
     private boolean logIn = false;
 
+    HiDUserInformationDAO dao;
     private FirebaseAuth mAuth;
 
     @Override
@@ -47,22 +50,23 @@ public class CreateAccountActivity extends NavigationActivity {
         activityCreateAccountBinding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         View rootView = getLayoutInflater().inflate(R.layout.activity_create_account, frameLayout);
 
+        dao = new HiDUserInformationDAO();
         mAuth = FirebaseAuth.getInstance();
 
-        firstName = rootView.findViewById(R.id.edittxtCAFirstName);
-        lastName = rootView.findViewById(R.id.edittxtCALastName);
-        CA_input_layout_email = rootView.findViewById(R.id.CA_input_layout_email);
-        email = rootView.findViewById(R.id.edittxtCAEmail);
-        CA_input_layout_password = rootView.findViewById(R.id.CA_input_layout_password);
-        password = rootView.findViewById(R.id.edittxtCAPassword);
+        firstName = rootView.findViewById(R.id.edittxtUPULastName);
+        lastName = rootView.findViewById(R.id.edittxtUPUFirstName);
+        CA_input_layout_email = rootView.findViewById(R.id.UPU_input_layout_email);
+        email = rootView.findViewById(R.id.edittxtUPUEmail);
+        CA_input_layout_password = rootView.findViewById(R.id.UPU_input_layout_password);
+        password = rootView.findViewById(R.id.edittxtUPUPassword);
 //        CA_input_layout_confirmpassword = rootView.findViewById(R.id.CAConfirm_input_layout_password);
 //        confirmPassword = rootView.findViewById(R.id.edittxtCAConPassword);
-        btnSave = rootView.findViewById(R.id.btnCASave);
+        btnSave = rootView.findViewById(R.id.btnUPUUpdate);
         txtMoveToLogin = rootView.findViewById(R.id.txtMoveToLogIn);
         progressBar = rootView.findViewById(R.id.progressBar);
 
-        strFirstName = firstName.getText().toString().trim();
-        strLastName = lastName.getText().toString().trim();
+//        strFirstName = firstName.getText().toString().trim();
+//        strLastName = lastName.getText().toString().trim();
 //        strEmail = email.getText().toString().trim();
 //        strPassword = password.getText().toString().trim();
 
@@ -70,6 +74,8 @@ public class CreateAccountActivity extends NavigationActivity {
             @Override
             public void onClick(View view) {
                 onCreateAccount();
+                Intent intent = new Intent(CreateAccountActivity.this, LogInOutActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -114,22 +120,31 @@ public class CreateAccountActivity extends NavigationActivity {
                     Toast.makeText(getApplicationContext(), "Create Account Successfully", Toast.LENGTH_SHORT).show();
                     logIn = true;
 
-                    SharedPreferences sharedPreferences = getSharedPreferences("LogInSuccess",MODE_PRIVATE);
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean("LOGINVALUE", logIn);
-                    edit.putString("FIRSTNAME", strFirstName);
-                    edit.putString("LASTNAME", strLastName);
-                    edit.putString("LASTNAME", strLastName);
-                    edit.commit();
+                    strFirstName = firstName.getText().toString().trim();
+                    strLastName = lastName.getText().toString().trim();
+                    strEmail = email.getText().toString().trim();
 
-                    Intent intent = new Intent(CreateAccountActivity.this, LogInOutActivity.class);
-//                    intent.putExtra("LOGINVALUE", logIn);
-//                    intent.putExtra("FIRSTNAME", strFirstName);
-//                    intent.putExtra("LASTNAME", strLastName);
-//                    intent.putExtra("LASTNAME", strLastName);
-                    startActivity(intent);
+                    HiDUserInformation hiDUserInformation = new HiDUserInformation();
+                    hiDUserInformation.setUserEmail(strEmail);
+                    hiDUserInformation.setUserFirstName(strFirstName);
+                    hiDUserInformation.setUserLastName(strLastName);
+                    createHiDUserInfo(hiDUserInformation);
+//                    SharedPreferences sharedPreferences = getSharedPreferences("LogInSuccess",MODE_PRIVATE);
+//                    SharedPreferences.Editor edit = sharedPreferences.edit();
+//                    edit.putBoolean("LOGINVALUE", logIn);
+//                    edit.putString("FIRSTNAME", strFirstName);
+//                    edit.putString("LASTNAME", strLastName);
+//                    edit.putString("LASTNAME", strLastName);
+//                    edit.commit();
+//
+//                    Intent intent = new Intent(CreateAccountActivity.this, LogInOutActivity.class);
+////                    intent.putExtra("LOGINVALUE", logIn);
+////                    intent.putExtra("FIRSTNAME", strFirstName);
+////                    intent.putExtra("LASTNAME", strLastName);
+////                    intent.putExtra("LASTNAME", strLastName);
+//                    startActivity(intent);
+//                    finish();
 
-                    finish();
                 }
             }
         });
@@ -185,5 +200,21 @@ public class CreateAccountActivity extends NavigationActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    private  void createHiDUserInfo(HiDUserInformation hiDUserInformation){
+
+        dao.createHiDUserInformation(hiDUserInformation).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(CreateAccountActivity.this, "Create UserInfo DB: " + strFirstName + ", " + strLastName, Toast.LENGTH_SHORT).show();
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(CreateAccountActivity.this, "Create UserInfo failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

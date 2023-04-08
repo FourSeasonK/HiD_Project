@@ -239,6 +239,7 @@ public class CreateMyDActivity extends NavigationActivity implements AddImageLis
                 Log.d(TAG, "Click here2");
             }
         });
+
     }
 
 

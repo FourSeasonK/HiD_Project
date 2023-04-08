@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenback"
+    tools:context=".lovemyself.DoNotBlameActivity">
+
+    <ImageView
+        android:id="@+id/imgDonotBSquare"
+        android:layout_width="362dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDoNotBTitle"
+        app:srcCompat="@drawable/donotbsquare" />
+
+    <TextView
+        android:id="@+id/txtDoNotBTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/DoNoBlameTitle"
+        android:textColor="@color/deepGreen"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDoNotBSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="550dp"
+        android:background="@drawable/btn_bg_green"
+        android:text="@string/DoNotBSaveBtn"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDoNotBTitle" />
+
+    <TextView
+        android:id="@+id/txtSubTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/txtSubTitle1"
+        android:textColor="@color/deepGreen"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDoNotBTitle" />
+
+    <TextView
+        android:id="@+id/txtSubTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:text="@string/txtSubTitle2"
+        android:textColor="@color/deepGreen"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle1" />
+
+    <ImageView
+        android:id="@+id/imgLine1"
+        android:layout_width="262dp"
+        android:layout_height="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle1"
+        app:srcCompat="@drawable/line" />
+
+    <ImageView
+        android:id="@+id/imgLine22"
+        android:layout_width="256dp"
+        android:layout_height="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle2"
+        app:srcCompat="@drawable/line" />
+
+    <EditText
+        android:id="@+id/edittxtDBSituation"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/txtSubDescribe1"
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle1" />
+
+    <EditText
+        android:id="@+id/edittxtDBDescribe"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/txtSubDescribe2"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine22" />
+
+    <Button
+        android:id="@+id/btnDoNotBNotification"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="550dp"
+        android:background="@drawable/btn_bg_green"
+        android:text="@string/DoNotBSetNotificationBtn"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/btnDoNotBSave"
+        app:layout_constraintTop_toBottomOf="@+id/txtDoNotBTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

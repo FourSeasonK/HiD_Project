@@ -26,10 +26,10 @@
             android:icon="@drawable/nav_created"
             android:title="Create My D"/>
 
-        <item
-            android:id="@+id/nav_DForum"
-            android:icon="@drawable/nav_dboard"
-            android:title="D Forum"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_DForum"-->
+<!--            android:icon="@drawable/nav_dboard"-->
+<!--            android:title="D Forum"/>-->
 
         <item
             android:id="@+id/nav_contactP"
@@ -37,14 +37,19 @@
             android:title="Contact People"/>
 
         <item
-            android:id="@+id/nav_userDashboaed"
-            android:icon="@drawable/nav_user_dashboard"
-            android:title="User Dashboard"/>
+            android:id="@+id/nav_needHelp"
+            android:icon="@drawable/nav_needhelp"
+            android:title="Need Help"/>
 
         <item
             android:id="@+id/nav_login"
             android:icon="@drawable/nav_login"
             android:title="Log in"/>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_logout"-->
+<!--            android:icon="@drawable/nav_logout"-->
+<!--            android:title="Log in"/>-->
 
 <!--        <item-->
 <!--            android:id="@+id/nav_userInfo"-->

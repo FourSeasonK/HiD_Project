@@ -5,6 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/greenback2"
-    tools:context=".activities.UserDashboardActivity">
+    tools:context=".userdashboard.UserDashboardActivityLogIn">
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtUserDashBoaedTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:text="Enjoy My D ?"-->
+<!--        android:textColor="@color/deepGreen"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userDashBoardRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="670dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/btnSelectDate"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@drawable/btn_bg_green"-->
+<!--        android:text="Select The Date"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtUserDashBoaedTitle" />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

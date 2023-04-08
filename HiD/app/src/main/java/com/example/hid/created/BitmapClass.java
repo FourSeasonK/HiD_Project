@@ -16,6 +16,8 @@ import java.io.OutputStream;
 
 public class BitmapClass {
 
+    private static final String TAG = BitmapClass.class.getSimpleName();
+
     public static String insertImage(ContentResolver contentResolver, Bitmap source, String title, String description) throws IOException{
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, title);
@@ -39,7 +41,7 @@ public class BitmapClass {
 
                 long id = ContentUris.parseId(uri);
                 Bitmap mini = MediaStore.Images.Thumbnails.getThumbnail(contentResolver, id, MediaStore.Images.Thumbnails.MINI_KIND, null);
-                storeThumnail(contentResolver, mini, id, 50f, 50f, MediaStore.Images.Thumbnails.MICRO_KIND);
+                //storeThumnail(contentResolver, mini, id, 50f, 50f, MediaStore.Images.Thumbnails.MICRO_KIND);
 
             }else {
                 contentResolver.delete(uri, null, null);
@@ -84,6 +86,7 @@ public class BitmapClass {
 
         try {
             OutputStream outputStream = contentResolver.openOutputStream(uri);
+            Log.d(TAG, "OutputStream: " + outputStream);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
             outputStream.close();
             return bitmap;

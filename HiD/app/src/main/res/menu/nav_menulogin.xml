@@ -26,10 +26,15 @@
             android:icon="@drawable/nav_created"
             android:title="Create My D"/>
 
+<!--        <item-->
+<!--            android:id="@+id/nav_DForum"-->
+<!--            android:icon="@drawable/nav_dboard"-->
+<!--            android:title="D Forum"/>-->
+
         <item
-            android:id="@+id/nav_DForum"
+            android:id="@+id/nav_diary"
             android:icon="@drawable/nav_dboard"
-            android:title="D Forum"/>
+            android:title="My D Diary"/>
 
         <item
             android:id="@+id/nav_contactP"
@@ -37,24 +42,30 @@
             android:title="Contact People"/>
 
         <item
+            android:id="@+id/nav_needHelp"
+            android:icon="@drawable/nav_needhelp"
+            android:title="Need Help"/>
+
+        <item
             android:id="@+id/nav_userDashboaed"
             android:icon="@drawable/nav_user_dashboard"
             android:title="User Dashboard"/>
-
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/nav_logout"
-            android:title="Log Out"/>
 
         <item
             android:id="@+id/nav_userInfo"
             android:icon="@drawable/nav_userinfo"
             android:title="Change User Info"/>
 
+<!--        <item-->
+<!--            android:id="@+id/nav_password"-->
+<!--            android:icon="@drawable/nav_password"-->
+<!--            android:title="Change Password"/>-->
+
+
         <item
-            android:id="@+id/nav_password"
-            android:icon="@drawable/nav_password"
-            android:title="Change Password"/>
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/nav_logout"
+            android:title="Log Out"/>
 
     </group>
 

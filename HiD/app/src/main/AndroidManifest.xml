@@ -4,6 +4,7 @@
     package="com.example.hid">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -21,37 +22,46 @@
         android:theme="@style/Theme.HiD"
         tools:targetApi="31">
         <activity
-            android:name=".LineAdapter"
+            android:name=".activities.NeedHelpActivity"
             android:exported="false" />
         <activity
-            android:name=".DrawAdapter"
+            android:name=".activities.NeedHelpActivityLogin"
             android:exported="false" />
+        <!-- <activity -->
+        <!-- android:name=".LineAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".DrawAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".ShapeAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".LipAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".NoseAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".EyeColorAcdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".created.adapter.EyesAdapter" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".created.fragment.ImageFragment" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".created.adapter.FrameAdapter" -->
+        <!-- android:exported="false" /> -->
         <activity
-            android:name=".ShapeAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".LipAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".NoseAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".EyeColorAcdapter"
-            android:exported="false" />
-        <activity
-            android:name=".created.adapter.EyesAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".created.fragment.ImageFragment"
-            android:exported="false" />
-        <activity
-            android:name=".created.adapter.FrameAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".activities.UserDashboardActivity"
+            android:name=".userdashboard.UserDashboardActivityLogIn"
             android:exported="false" />
         <activity
             android:name=".activities.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NavigationActivityLogIn"
             android:exported="false" />
         <activity
             android:name=".dforum.UploadDForumActivity"
@@ -63,23 +73,37 @@
             android:name=".contactpeople.ContactPeopleActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ResetPasswordActivity"
+            android:name=".contactpeople.ContactPeopleActivityLogIn"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ResetPasswordActivityLogIn"
             android:exported="false" />
         <activity
             android:name=".activities.CreateAccountActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.UpdateUserInfoActivityLogIn"
+            android:exported="false" />
+        <activity
             android:name=".activities.LogInOutActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".created.CreateMyDActivity"
+            android:exported="false" />
+        <activity
+            android:name=".created.CreateMyDActivityLogIn"
             android:exported="false" />
         <activity
             android:name=".lovemyself.DoNotBlameActivity"
             android:exported="false" />
         <activity
+            android:name=".lovemyself.DoNotBlameActivityLogIn"
+            android:exported="false" />
+        <activity
             android:name=".boxbreath.BoxBreathingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".boxbreath.BoxBreathingActivityLogIn"
             android:exported="false" />
         <activity
             android:name=".activities.SplashActivity"
@@ -108,6 +132,17 @@
             <!-- android:exported="false" -->
             <!-- android:theme="@style/CommunicateTheme" /> -->
         </activity>
+        <activity
+            android:name=".activities.HomeActivityLogIn"
+            android:exported="false"></activity>
+
+        <activity
+            android:name=".activities.HomeActivityLogInD"
+            android:exported="false"></activity>
+
+        <activity
+            android:name=".dforum.MyDiaryActivityLogIn"
+            android:exported="false"></activity>
 
         <receiver
             android:name=".lovemyself.NotificationReceiver"
@@ -116,10 +151,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-
         </receiver>
-
-
     </application>
 
 </manifest>

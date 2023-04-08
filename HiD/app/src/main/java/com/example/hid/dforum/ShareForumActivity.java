@@ -27,6 +27,7 @@ public class ShareForumActivity extends NavigationActivity {
     private static final String TAG = ShareForumActivity.class.getSimpleName();
     ActivityShareforumBinding activityShareforumBinding;
 
+
     Date today;
     SimpleDateFormat dateFormat;
     String todayDate;

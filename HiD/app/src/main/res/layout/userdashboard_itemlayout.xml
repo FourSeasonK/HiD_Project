@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtUDDate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@color/darkGreen"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtBoxBreathTitle"
+            android:layout_width="310dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:textColor="@color/deepGreen"
+            android:background="@color/lightGray"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+
+            android:text="BoxBreathing Round" />
+
+        <TextView
+            android:id="@+id/txtBoxBreathRoundNum"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtContacPeopleTitle"
+            android:layout_width="310dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/lightGray"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="Contact People"
+
+            android:textColor="@color/deepGreen" />
+
+        <TextView
+            android:id="@+id/txtContacPeopleMethod"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtNotificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/deepGreen"
+        android:textColor="@color/white"
+        android:text="Notification" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNotiSituationTitle"
+            android:layout_width="130sp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/lightGray"
+
+            android:paddingLeft="5dp"
+            android:text="Situation"
+
+            android:textColor="@color/deepGreen" />
+
+        <TextView
+            android:id="@+id/txtNotiSituation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNotiSolutionTitle"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/lightGray"
+
+            android:paddingLeft="5dp"
+            android:text="Solution"
+
+            android:textColor="@color/deepGreen" />
+
+        <TextView
+            android:id="@+id/txtNotiSolution"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtMyDDiaryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/deepGreen"
+        android:textColor="@color/white"
+        android:text="My D Diary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtMyDTitleLable"
+            android:textColor="@color/deepGreen"
+            android:background="@color/lightGray"
+            android:layout_width="130sp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+
+            android:text="Title" />
+
+        <TextView
+            android:id="@+id/txtMyDTitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtMyDMyMoodTitle"
+            android:textColor="@color/deepGreen"
+            android:background="@color/lightGray"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+
+            android:text="Mood" />
+
+        <TextView
+            android:id="@+id/txtMyDMyMood"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtMyDNameTitle"
+            android:textColor="@color/deepGreen"
+            android:background="@color/lightGray"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+
+            android:text="D Name" />
+
+        <TextView
+            android:id="@+id/txtMyDName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtMyDContentsTitle"
+            android:textColor="@color/deepGreen"
+            android:background="@color/lightGray"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+
+            android:paddingLeft="5dp"
+
+            android:text="Contents" />
+
+        <TextView
+            android:id="@+id/txtMyDContents"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="5dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgMyDUpload"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:layout_weight="1" />
+
+</LinearLayout>

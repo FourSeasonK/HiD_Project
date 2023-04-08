@@ -3,7 +3,6 @@ package com.example.hid.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hid.databinding.ActivityLogInOutBinding;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,16 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hid.R;
+import com.example.hid.model.ResetpasswordDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class LogInOutActivity extends AppCompatActivity {
+public class LogInOutActivity extends AppCompatActivity implements ResetpasswordDialog.ResetPasswordDialogListener {
 
     private static final String TAG = LogInOutActivity.class.getSimpleName();
-    ActivityLogInOutBinding activityLogInOutBinding;
+//    ActivityLogInOutBinding activityLogInOutBinding;
 
     String EAMILTAG = "EMAIL_AUTH";
 
@@ -90,10 +91,16 @@ public class LogInOutActivity extends AppCompatActivity {
         txtForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LogInOutActivity.this, ResetPasswordActivity.class);
-                startActivity(intent);
+                openDialog();
+//                Intent intent = new Intent(LogInOutActivity.this, ResetPasswordActivityLogIn.class);
+//                startActivity(intent);
             }
         });
+    }
+
+    public void openDialog(){
+        ResetpasswordDialog resetpasswordDialog = new ResetpasswordDialog();
+        resetpasswordDialog.show(getSupportFragmentManager(), "ResetPassword Dialog");
     }
 
 
@@ -121,6 +128,7 @@ public class LogInOutActivity extends AppCompatActivity {
 
                 if(!task.isSuccessful()){
                     Log.d(TAG, "Authentication failed. " + task.getException());
+                    Toast.makeText(getApplicationContext(), "LogIn failed. Check your Information", Toast.LENGTH_SHORT).show();
                     logIn = false;
 
                 } else {
@@ -133,7 +141,9 @@ public class LogInOutActivity extends AppCompatActivity {
                     edit.putString("LOGINEMAIL", strPassword);
                     edit.commit();
 
-                    Intent intent = new Intent(LogInOutActivity.this, HomeActivity.class);
+//                    Intent intent = new Intent(LogInOutActivity.this, HomeActivityLogIn.class);
+                    Intent intent = new Intent(LogInOutActivity.this, HomeActivityLogInD.class);
+//                    Intent intent = new Intent(LogInOutActivity.this, HomeActivity.class);
 //                    intent.putExtra("LOGINVALUE", logIn);
 //                    intent.putExtra("LOGINEMAIL", strPassword);
                     startActivity(intent);
@@ -197,4 +207,19 @@ public class LogInOutActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 
+    @Override
+    public void applyTexts(String email) {
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(LogInOutActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+    }
 }
