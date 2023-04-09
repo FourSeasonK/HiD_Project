@@ -1,25 +1,34 @@
 package com.example.hid.boxbreath;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.app.AlertDialog;
+
 import com.example.hid.R;
+import com.example.hid.activities.HomeActivity;
 import com.example.hid.activities.NavigationActivity;
 import com.example.hid.databinding.ActivityBoxBreathingBinding;
+import com.example.hid.dialog.BoxBreathingDialog;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BoxBreathingActivity extends NavigationActivity {
+public class BoxBreathingActivity extends NavigationActivity{
+//public class BoxBreathingActivity extends NavigationActivity implements BoxBreathingDialog.DoBoxBreathDialogListener {
 
     private static final String TAG = BoxBreathingActivity.class.getSimpleName();
     ActivityBoxBreathingBinding activityBoxBreathingBinding;
@@ -30,7 +39,7 @@ public class BoxBreathingActivity extends NavigationActivity {
     EditText countUserNum;
     int shortAnimationDuration;
     MediaPlayer mediaPlayer;
-    boolean countCheck;
+    boolean countCheck, doNotShowAgian;
     boolean playcheck, killRunable;
     int index, listIndex, txtTime;
     int round = 1;
@@ -75,14 +84,25 @@ public class BoxBreathingActivity extends NavigationActivity {
 //        shortAnimationDuration = getResources()
 //                .getInteger(android.R.integer.config_longAnimTime);
 
+        /////To Test the App/////
+//        removeDataFromPref(BoxBreathingActivity.this);
+        openBoxBreathDialog();
+
+        txtProcess.setVisibility(View.VISIBLE);
+        breathCount.setVisibility(View.VISIBLE);
+
         playcheck = true;
 
         imgPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                breathCount.setVisibility(View.INVISIBLE);
+
                 String countStr = countUserNum.getText().toString();
 
                 if(TextUtils.isEmpty(countStr) || countStr.equals("")){
+                    txtProcess.setText("");
                     Toast.makeText(BoxBreathingActivity.this, "Please enter the rounds", Toast.LENGTH_SHORT).show();
 
                 } else {
@@ -337,4 +357,62 @@ public class BoxBreathingActivity extends NavigationActivity {
             }
         }, (long) time);
     }
+
+    public void openBoxBreathDialog(){
+//        BoxBreathingDialog boxBreathingDialog = new BoxBreathingDialog();
+//        boxBreathingDialog.show(getSupportFragmentManager(), "Start BoxBreathing");
+
+        final AlertDialog.Builder adb = new AlertDialog.Builder(BoxBreathingActivity.this);
+        LayoutInflater adbInflater = LayoutInflater.from(BoxBreathingActivity.this);
+        View eulaLayout = adbInflater.inflate(R.layout.layout_boxbreath_dialog, null);
+
+        adb.setView(eulaLayout);
+        adb.setTitle("Calm Your Mind");
+        adb.setMessage("\nRepeating breathing in, holding the breath, exhaling and holding it again for 4 seconds");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.cancel();
+            }
+        });
+
+        adb.setNegativeButton("Do not show again", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                doNotShowAgian = true;
+                SharedPreferences settings = getSharedPreferences("BBreath", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("skipMessage", doNotShowAgian);
+                editor.commit();
+                dialog.cancel();
+            }
+        });
+        SharedPreferences settings = getSharedPreferences("BBreath", 0);
+        Boolean skipMessage = settings.getBoolean("skipMessage", false);
+
+        if (skipMessage.equals(false)) {
+            adb.show();
+            txtProcess.setText("Let's Start!");
+            breathCount.setText("Please type the number");
+        }
+//        adb.show();
+    }
+
+    public static void removeDataFromPref(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("BBreath", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("skipMessage");
+        editor.commit();
+    }
+
+//    @Override
+//    public void startBoxBreath(boolean checkCancel) {
+//
+//        if(checkCancel){
+//            Intent intent = new Intent(BoxBreathingActivity.this, HomeActivity.class);
+//            startActivity(intent);
+//        } else {
+//            txtProcess.setText("Let's Start!");
+//            breathCount.setText("Please type the number");
+//        }
+//    }
 }

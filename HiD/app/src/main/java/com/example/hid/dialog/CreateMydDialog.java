@@ -1,4 +1,4 @@
-package com.example.hid.model;
+package com.example.hid.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,37 +15,43 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.hid.R;
 
-public class DeleteUserDialog extends AppCompatDialogFragment {
+public class CreateMydDialog extends AppCompatDialogFragment {
 
-    TextView deleteConfirmMessage;
-    private DeleteUserInfoDialogListener deleteUserInfoDialogListener;
+    TextView confirmCreateD;
+    private DoCreateMyDDialogListener doCreateMyDDialogListener;
+    boolean checkValue;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.layout_deleteuser_dialog, null);
+        View view = inflater.inflate(R.layout.layout_creatd_dialog, null);
 
         builder.setView(view)
-                .setTitle("Confirm the information")
-                .setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                .setTitle("Express My Depression")
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        checkValue = true;
+                        doCreateMyDDialogListener.startCreateMyD(checkValue);
                     }
                 })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        deleteUserInfoDialogListener.deleteConfirmMessage();
+                        checkValue = false;
+                        doCreateMyDDialogListener.startCreateMyD(checkValue);
                     }
                 });
 
-        deleteConfirmMessage = view.findViewById(R.id.dialog_ConfirmMessage);
-        deleteConfirmMessage.setText("Are you sure you want to delete user information?");
+        confirmCreateD = view.findViewById(R.id.dialog_created);
+//        confirmCreateD.setText("Express your depression to psychologically objectify it");
+        confirmCreateD.setText("Express your depression freely and comfortably. This can help create a psychological distance from it");
 
         return builder.create();
     }
@@ -55,15 +61,14 @@ public class DeleteUserDialog extends AppCompatDialogFragment {
         super.onAttach(context);
 
         try {
-            deleteUserInfoDialogListener = (DeleteUserInfoDialogListener) context;
+            doCreateMyDDialogListener = (DoCreateMyDDialogListener) context;
         } catch (ClassCastException e) {
             throw  new ClassCastException(context.toString() +
-                    "must implement DeleteUserInfoDialogListener");
+                    "must implement DoCreateMyDDialogListener");
         }
-
     }
 
-    public interface DeleteUserInfoDialogListener{
-        void deleteConfirmMessage();
+    public interface DoCreateMyDDialogListener{
+        void startCreateMyD(boolean checkCancel);
     }
 }

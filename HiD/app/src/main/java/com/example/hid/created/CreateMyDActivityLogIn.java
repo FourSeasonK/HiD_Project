@@ -1,13 +1,21 @@
 package com.example.hid.created;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,6 +25,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.hid.R;
+import com.example.hid.activities.HomeActivity;
+import com.example.hid.activities.HomeActivityLogInD;
 import com.example.hid.activities.NavigationActivity;
 import com.example.hid.activities.NavigationActivityLogIn;
 import com.example.hid.created.fragment.EyeFragment;
@@ -26,6 +36,7 @@ import com.example.hid.created.fragment.LipFragment;
 import com.example.hid.created.fragment.NoseFragment;
 import com.example.hid.created.fragment.ShapeFragment;
 import com.example.hid.databinding.ActivityCreateMyDactivityBinding;
+import com.example.hid.dialog.CreateMydDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -35,6 +46,8 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -44,6 +57,7 @@ import ja.burhanrashid52.photoeditor.PhotoEditor;
 import ja.burhanrashid52.photoeditor.PhotoEditorView;
 
 public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements AddImageListener {
+//public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements AddImageListener, CreateMydDialog.DoCreateMyDDialogListener {
 
     private static final String TAG = CreateMyDActivityLogIn.class.getSimpleName();
     ActivityCreateMyDactivityBinding activityCreateMyDactivityBinding;
@@ -55,6 +69,8 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
     PhotoEditorView photoEditorView;
     PhotoEditor photoEditor;
     ConstraintLayout constraintLayout;
+    String path;
+    boolean doNotShowAgian;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +96,12 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
        photoEditorView = findViewById(R.id.imgDrawBoard);
        photoEditorView.getSource().setImageURI(getIntent().getData());
        photoEditor = new PhotoEditor.Builder(this, photoEditorView).setPinchTextScalable(true).build();
+
+       photoEditorView.setVisibility(View.VISIBLE);
+
+       /////To Test the App/////
+//       removeDataFromPref(CreateMyDActivityLogIn.this);
+       openCreateMyDDialog();
 
        imgEyes.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -238,6 +260,20 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
                 Log.d(TAG, "Click here2");
             }
         });
+
+        btnShareD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getAndShareImage();
+
+                if(path == null){
+                    photoEditorView.setVisibility(View.VISIBLE);
+                } else {
+                    photoEditorView.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
         
     }
 
@@ -257,7 +293,8 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
                             photoEditorView.getSource().setImageBitmap(saveBitmap);
 
                             try {
-                                final String path = BitmapClass.insertImage(getContentResolver(), saveBitmap, System.currentTimeMillis() + "_profile.jpg", null);
+//                               final String path = BitmapClass.insertImage(getContentResolver(), saveBitmap, System.currentTimeMillis() + "_profile.jpg", null);
+                                path = BitmapClass.insertImage(getContentResolver(), saveBitmap, System.currentTimeMillis() + "_profile.jpg", null);
                                 Log.d(TAG, "path Value: " + path);
 
                                 if(!TextUtils.isEmpty(path)){
@@ -334,4 +371,86 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), image);
         photoEditor.addImage(bitmap);
     }
+
+    private void getAndShareImage(){
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
+//        BitmapDrawable drawable = (BitmapDrawable)photoEditorView.getSource().getDrawable();
+//        Log.d(TAG,  "drawable !!!: " +  drawable);
+//        Bitmap bitmap = drawable.getBitmap();
+
+        shareImage(this);
+    }
+
+    public void shareImage(Context context) {
+//    public static void shareImage(Bitmap bmp, Context context) {
+
+//        String sImageUrl = MediaStore.Images.Media.insertImage(context.getContentResolver(), bmp, "title" , "description");
+        if(path == null){
+            Toast.makeText(CreateMyDActivityLogIn.this, "Please load & save the image first", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Uri savedImageURI = Uri.parse(path);
+
+            if (savedImageURI != null) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("image/png");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, savedImageURI);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                context.startActivity(Intent.createChooser(shareIntent, "Share Image"));
+            }
+        }
+    }
+
+    public void openCreateMyDDialog(){
+//        CreateMydDialog createMydDialog = new CreateMydDialog();
+//        createMydDialog.show(getSupportFragmentManager(), "Start Create My D");
+        final AlertDialog.Builder adb = new AlertDialog.Builder(CreateMyDActivityLogIn.this);
+        LayoutInflater adbInflater = LayoutInflater.from(CreateMyDActivityLogIn.this);
+        View eulaLayout = adbInflater.inflate(R.layout.layout_creatd_dialog, null);
+
+        adb.setView(eulaLayout);
+        adb.setTitle("Express My Depression");
+        adb.setMessage("\nExpress your depression freely and comfortably. This can help create a psychological distance from it");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.cancel();
+            }
+        });
+
+        adb.setNegativeButton("Do not show again", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                doNotShowAgian = true;
+                SharedPreferences settings = getSharedPreferences("CreateMyDLogIn", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("skipMessage", doNotShowAgian);
+                editor.commit();
+                dialog.cancel();
+            }
+        });
+        SharedPreferences settings = getSharedPreferences("CreateMyDLogIn", 0);
+        Boolean skipMessage = settings.getBoolean("skipMessage", false);
+
+        if (skipMessage.equals(false)) {
+            adb.show();
+        }
+    }
+
+    //to test the app
+    public static void removeDataFromPref(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("CreateMyDLogIn", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("skipMessage");
+        editor.commit();
+    }
+
+//    @Override
+//    public void startCreateMyD(boolean checkCancel) {
+//        if(checkCancel){
+//            Intent intent = new Intent(CreateMyDActivityLogIn.this, HomeActivityLogInD.class);
+//            startActivity(intent);
+//        }
+//    }
 }

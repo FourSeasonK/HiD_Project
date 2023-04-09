@@ -1,4 +1,4 @@
-package com.example.hid.model;
+package com.example.hid.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

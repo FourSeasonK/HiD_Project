@@ -1,10 +1,15 @@
 package com.example.hid.dforum;
 
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -16,9 +21,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.hid.R;
+import com.example.hid.activities.HomeActivityLogInD;
 import com.example.hid.activities.NavigationActivityLogIn;
+import com.example.hid.boxbreath.BoxBreathingActivityLogIn;
+import com.example.hid.created.CreateMyDActivity;
 import com.example.hid.dao.HiDUserInformationDAO;
 import com.example.hid.databinding.ActivityUpdateDforumBinding;
+import com.example.hid.dialog.MyDDiaryDialog;
 import com.example.hid.model.HiDUserInformation;
 import com.example.hid.model.MyDDiary;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,6 +51,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
+//public class MyDiaryActivityLogIn extends NavigationActivityLogIn implements MyDDiaryDialog.DoWriteDDiaryDialogListener {
 
     private static final String TAG = MyDiaryActivityLogIn.class.getSimpleName();
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -66,6 +76,7 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
     private StorageReference mStorageRef;
     //private DatabaseReference mDatabaseRef;
     private StorageTask mSaveTask;
+    boolean doNotShowAgian;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +99,10 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
         btnUploasImg = rootView.findViewById(R.id.btnMyDUpload);
         btnSave = rootView.findViewById(R.id.btnMyDSave);
 
+        /////To Test the App/////
+//        removeDataFromPref(MyDiaryActivityLogIn.this);
+        openMyDDiaryDialog();
+
         myDImage.setVisibility(View.VISIBLE);
 
 
@@ -105,19 +120,23 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String title = myDTitle.getText().toString();
                 String myDname = myDDName.getText().toString().trim();
+                String mood = myDMood.getText().toString();
+                String contents = myDContents.getText().toString();
 
-                if(mSaveTask != null && mSaveTask.isInProgress()){
-                    Toast.makeText(MyDiaryActivityLogIn.this, "Save in progress", Toast.LENGTH_SHORT).show();
+                if(title.equals("") || myDname.equals("") || mood.equals("") || contents.equals("")){
+                    Toast.makeText(MyDiaryActivityLogIn.this, "Please type empty fields", Toast.LENGTH_SHORT).show();
+
                 } else {
-                    saveFileToFirebase(myDname);
+                    if(mSaveTask != null && mSaveTask.isInProgress()){
+                        Toast.makeText(MyDiaryActivityLogIn.this, "Save in progress", Toast.LENGTH_SHORT).show();
+                    } else {
+                        saveFileToFirebase(myDname);
+                    }
                 }
-
-
             }
         });
-
-
     }
 
     private void openFileChooser(){
@@ -155,9 +174,10 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
 
     private void saveFileToFirebase(String myDname){
 
+        String trimNoSpaceDname = myDname.trim().replace(" ", "");
+
         if(mImgUri != null){
-//            StorageReference fileReference = mStorageRef.child(myDname + "." + getFileExtension(mImgUri));
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImgUri));
+            StorageReference fileReference = mStorageRef.child(trimNoSpaceDname + "." + getFileExtension(mImgUri));
 
             mSaveTask = fileReference.putFile(mImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -267,4 +287,57 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
 
     }
 
+    public void openMyDDiaryDialog(){
+//        MyDDiaryDialog myDDiaryDialog = new MyDDiaryDialog();
+//        myDDiaryDialog.show(getSupportFragmentManager(), "Start My D Diary");
+
+        final AlertDialog.Builder adb = new AlertDialog.Builder(MyDiaryActivityLogIn.this);
+        LayoutInflater adbInflater = LayoutInflater.from(MyDiaryActivityLogIn.this);
+        View eulaLayout = adbInflater.inflate(R.layout.layout_myddiary_dialog, null);
+
+        adb.setView(eulaLayout);
+        adb.setTitle("Write Your Depression Diary");
+        adb.setMessage("\nRecord your daily mood along with the depression image you created");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.cancel();
+            }
+        });
+
+        adb.setNegativeButton("Do not show again", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                doNotShowAgian = true;
+                SharedPreferences settings = getSharedPreferences("MyDDiaryLogIn", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("skipMessage", doNotShowAgian);
+                editor.commit();
+                dialog.cancel();
+            }
+        });
+        SharedPreferences settings = getSharedPreferences("MyDDiaryLogIn", 0);
+        Boolean skipMessage = settings.getBoolean("skipMessage", false);
+
+        if (skipMessage.equals(false)) {
+            adb.show();
+
+        }
+    }
+
+    //to test the app
+    public static void removeDataFromPref(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyDDiaryLogIn", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("skipMessage");
+        editor.commit();
+    }
+
+//    @Override
+//    public void startDDiary(boolean checkCancel) {
+//
+//        if(checkCancel){
+//            Intent intent = new Intent(MyDiaryActivityLogIn.this, HomeActivityLogInD.class);
+//            startActivity(intent);
+//        }
+//    }
 }

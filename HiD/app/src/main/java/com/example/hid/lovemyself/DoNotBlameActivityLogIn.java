@@ -1,15 +1,20 @@
 package com.example.hid.lovemyself;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,11 +25,14 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.example.hid.R;
+import com.example.hid.activities.HomeActivity;
 import com.example.hid.activities.HomeActivityLogIn;
+import com.example.hid.activities.HomeActivityLogInD;
 import com.example.hid.activities.NavigationActivity;
 import com.example.hid.activities.NavigationActivityLogIn;
 import com.example.hid.dao.HiDUserInformationDAO;
 import com.example.hid.databinding.ActivityDoNotBlameBinding;
+import com.example.hid.dialog.DoNotBlameDialog;
 import com.example.hid.model.HiDUserInformation;
 import com.example.hid.model.NotificationDBM;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -42,6 +50,7 @@ import java.util.Date;
 import java.util.List;
 
 public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
+//public class DoNotBlameActivityLogIn extends NavigationActivityLogIn implements DoNotBlameDialog.DoNotBlameStartListener {
 
     private static final String TAG = DoNotBlameActivityLogIn.class.getSimpleName();
     ActivityDoNotBlameBinding activityDoNotBlameBinding;
@@ -60,6 +69,7 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
     String key1, key2;
     String userEmail;
     boolean checkUser = false;
+    boolean doNotShowAgian;
 
     private NotificationManagerCompat notificationManager;
     private EditText situationDB;
@@ -87,15 +97,26 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
         btnSave = rootView.findViewById(R.id.btnDoNotBSave);
         btnNotification = rootView.findViewById(R.id.btnDoNotBNotification);
 
+        /////To Test the App/////
+//        removeDataFromPref(DoNotBlameActivityLogIn.this);
+        openDoNotBlameDialog();
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(checkUser == true){
-                    removeNotification();
-                    saveNotification();
-                }
+                situation = situationDB.getText().toString();
+                solution = describeDB.getText().toString();
 
+                if(situation.equals("") && solution.equals("")){
+                    Toast.makeText(DoNotBlameActivityLogIn.this, "Please type the situation and solution", Toast.LENGTH_SHORT).show();
+                } else {
+
+                    if(checkUser == true) {
+                        removeNotification();
+                        saveNotification();
+                    }
+                }
             }
         });
 
@@ -118,23 +139,27 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
                     calendar.add(Calendar.DAY_OF_MONTH, 1);
                 }
 
-                Intent intent = new Intent(DoNotBlameActivityLogIn.this, NotificationReceiver.class);
-                intent.putExtra("toastMessage", "Happy Day");
-                intent.putExtra("SITUATION", situation);
-                intent.putExtra("SOLUTION", solution);
-//                intent.putExtra("SITUATION", situationList.get(0));
-//                intent.putExtra("SOLUTION", solutionsList.get(0));
-                Log.d(TAG, "situation intent: " + situation);
-                Log.d(TAG, "solutions intent: " + solution);
-                PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                if(situation.equals("") && solution.equals("")){
+                    Toast.makeText(DoNotBlameActivityLogIn.this, "Please type the situation and solution", Toast.LENGTH_SHORT).show();
+                } else {
 
-                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                    Toast.makeText(DoNotBlameActivityLogIn.this, "Set Notification Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DoNotBlameActivityLogIn.this, NotificationReceiver.class);
+                    intent.putExtra("toastMessage", "Happy Day");
+                    intent.putExtra("SITUATION", situation);
+                    intent.putExtra("SOLUTION", solution);
+                    //                intent.putExtra("SITUATION", situationList.get(0));
+                    //                intent.putExtra("SOLUTION", solutionsList.get(0));
+                    Log.d(TAG, "situation intent: " + situation);
+                    Log.d(TAG, "solutions intent: " + solution);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                        Toast.makeText(DoNotBlameActivityLogIn.this, "Set Notification Success", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
             }
         });
     }
@@ -339,5 +364,56 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
         notificationManager.notify(1, notification);
     }
 
+    public void openDoNotBlameDialog(){
+//        DoNotBlameDialog doNotBlameDialog = new DoNotBlameDialog();
+//        doNotBlameDialog.show(getSupportFragmentManager(), "Start Love yourself");
 
+        final AlertDialog.Builder adb = new AlertDialog.Builder(DoNotBlameActivityLogIn.this);
+        LayoutInflater adbInflater = LayoutInflater.from(DoNotBlameActivityLogIn.this);
+        View eulaLayout = adbInflater.inflate(R.layout.layout_donotblame_dialog, null);
+
+        adb.setView(eulaLayout);
+        adb.setTitle("Love Yourself");
+        adb.setMessage("\nDo you blame yourself for something? Or are you in an unbearable situation? Leave yourself a message of encouragement");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.cancel();
+            }
+        });
+
+        adb.setNegativeButton("Do not show again", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                doNotShowAgian = true;
+                SharedPreferences settings = getSharedPreferences("DoNotBlameLogIn", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putBoolean("skipMessage", doNotShowAgian);
+                editor.commit();
+                dialog.cancel();
+            }
+        });
+        SharedPreferences settings = getSharedPreferences("DoNotBlameLogIn", 0);
+        Boolean skipMessage = settings.getBoolean("skipMessage", false);
+
+        if (skipMessage.equals(false)) {
+            adb.show();
+        }
+    }
+
+    //to test the app
+    public static void removeDataFromPref(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("DoNotBlameLogIn", 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("skipMessage");
+        editor.commit();
+    }
+
+//    @Override
+//    public void startDoNotBlame(boolean checkCancel) {
+//
+//        if(checkCancel){
+//            Intent intent = new Intent(DoNotBlameActivityLogIn.this, HomeActivityLogInD.class);
+//            startActivity(intent);
+//        }
+//    }
 }
