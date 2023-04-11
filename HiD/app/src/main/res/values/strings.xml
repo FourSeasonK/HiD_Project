@@ -50,9 +50,9 @@
     <string name="DoNotBSaveBtn">Save</string>
     <string name="DoNotBSetNotificationBtn">Set Notification</string>
     <string name="txtSubTitle1">SITUATION</string>
-    <string name="txtSubDescribe1">Describe the situation (100)</string>
-    <string name="txtSubTitle2">HUG MYSELF</string>
-    <string name="txtSubDescribe2">What would you do to comfort your friend if they were in the same situation as you?</string>
+    <string name="txtSubDescribe1">Describe the situation \n(up to 4 lines)</string>
+    <string name="txtSubTitle2">SOLUTION</string>
+    <string name="txtSubDescribe2">What would you do to comfort your friend if they were in the same situation as you? \n(up to 10 lines)</string>
 
     <!--    Create My D-->
     <string name="createMyDTitle">Create My D</string>

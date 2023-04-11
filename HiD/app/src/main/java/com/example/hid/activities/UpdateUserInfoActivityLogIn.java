@@ -90,12 +90,18 @@ public class UpdateUserInfoActivityLogIn extends NavigationActivityLogIn impleme
                 strFirstName = firstName.getText().toString();
                 strLastName = lastName.getText().toString();
                 strEmail = email.getText().toString();
-//        strPassword = password.getText().toString().trim();
-                Log.d(TAG, "userEmail: " + strEmail);
-                Log.d(TAG, "userFirstName: " + strFirstName);
-                Log.d(TAG, "userLastName: "+ strLastName);
 
-                openUpdateUserInfoDialog(strFirstName, strLastName, strEmail);
+                if(strFirstName.equals("") || strLastName.equals("") || strEmail.equals("")){
+                    Toast.makeText(UpdateUserInfoActivityLogIn.this, "Please type user information", Toast.LENGTH_SHORT).show();
+                }else {
+                    //        strPassword = password.getText().toString().trim();
+                    Log.d(TAG, "userEmail: " + strEmail);
+                    Log.d(TAG, "userFirstName: " + strFirstName);
+                    Log.d(TAG, "userLastName: "+ strLastName);
+
+                    openUpdateUserInfoDialog(strFirstName, strLastName, strEmail);
+                }
+
 
             }
         });

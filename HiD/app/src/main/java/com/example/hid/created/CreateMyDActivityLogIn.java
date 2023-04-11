@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.TooltipCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.hid.R;
@@ -106,6 +108,7 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
        imgEyes.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+
                imgEyes.setImageResource(R.drawable.eyeselectgreen);
                imgNoses.setImageResource(R.drawable.nosegray);
                imgLips.setImageResource(R.drawable.lipgray);
@@ -255,9 +258,13 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
         btnSaveD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Click here1");
+//                if(path == null) {
+//                    Toast.makeText(CreateMyDActivityLogIn.this, "Please load the image from device first", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    saveImage();
+//                }
                 saveImage();
-                Log.d(TAG, "Click here2");
+
             }
         });
 
@@ -411,8 +418,12 @@ public class CreateMyDActivityLogIn extends NavigationActivityLogIn implements A
         View eulaLayout = adbInflater.inflate(R.layout.layout_creatd_dialog, null);
 
         adb.setView(eulaLayout);
-        adb.setTitle("Express My Depression");
-        adb.setMessage("\nExpress your depression freely and comfortably. This can help create a psychological distance from it");
+        adb.setTitle("Express a Portrait of Depression");
+        adb.setMessage("\nCreate a portrait of your depression as it may help you create a psychological distance from it. \n\n\n" +
+                        "1) Click on the leftmost round icon at the bottom to load the image you want.\n\n" +
+                        "2) Click on each icon, select a color, and designate a shape.\n\n" +
+                        "3) Resizing it and place it where you want.\n\n\n" +
+                        "Enjoy!");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 

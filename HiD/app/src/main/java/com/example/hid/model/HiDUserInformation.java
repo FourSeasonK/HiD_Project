@@ -14,7 +14,7 @@ public class HiDUserInformation {
     private List<BoxBreathing> BoxBreathing;
     private List<NotificationDBM> NotificationDBM;
 //    private NotificationDBM NotificationDBM;
-    private List<CreateMyD> CreateMyD;
+//    private List<CreateMyD> CreateMyD;
     private List<ContactPeople> ContactPeople;
     private List<MyDDiary> MyDDiary;
 

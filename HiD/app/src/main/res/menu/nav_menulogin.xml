@@ -19,7 +19,7 @@
         <item
             android:id="@+id/nav_donotB"
             android:icon="@drawable/nav_donotb"
-            android:title="Don't Blame"/>
+            android:title="Don't Blame me"/>
 
         <item
             android:id="@+id/nav_createD"
@@ -49,12 +49,12 @@
         <item
             android:id="@+id/nav_userDashboaed"
             android:icon="@drawable/nav_user_dashboard"
-            android:title="User Dashboard"/>
+            android:title="User History"/>
 
         <item
             android:id="@+id/nav_userInfo"
             android:icon="@drawable/nav_userinfo"
-            android:title="Change User Info"/>
+            android:title="Update User Info"/>
 
 <!--        <item-->
 <!--            android:id="@+id/nav_password"-->

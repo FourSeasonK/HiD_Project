@@ -368,7 +368,13 @@ public class BoxBreathingActivity extends NavigationActivity{
 
         adb.setView(eulaLayout);
         adb.setTitle("Calm Your Mind");
-        adb.setMessage("\nRepeating breathing in, holding the breath, exhaling and holding it again for 4 seconds");
+        adb.setMessage("\nThis breathing technique helps to reduce nervousness and anxiety.\n\n\n" +
+                "To perform the technique:\n\n" +
+                "1) Breathe in and hold your breath for 4 seconds.\n\n" +
+                "2) Exhale slowly and hold your breath again for 4 seconds.\n\n" +
+                "3) Repeat the cycle.\n\n\n" +
+                "Use the round button at the bottom:\n" +
+                "\t\t\t\t\t\t\tPlay\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tReset");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 

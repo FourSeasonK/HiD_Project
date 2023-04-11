@@ -296,8 +296,9 @@ public class MyDiaryActivityLogIn extends NavigationActivityLogIn {
         View eulaLayout = adbInflater.inflate(R.layout.layout_myddiary_dialog, null);
 
         adb.setView(eulaLayout);
-        adb.setTitle("Write Your Depression Diary");
-        adb.setMessage("\nRecord your daily mood along with the depression image you created");
+        adb.setTitle("Depression Portrait Diary");
+        adb.setMessage("\nWrite down your daily mood along with the depression portrait you have created.\n\nThis practice can help you detect and track changes in your depression over time.\n\n" +
+                        "To upload a depression portrait, click on the \"UPLOAD IMAGE\" button and choose from the images stored in the gallery.");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 

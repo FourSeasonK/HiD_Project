@@ -131,8 +131,8 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
                 createNotificationChannels();
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,22);
-                calendar.set(Calendar.MINUTE,39);
+                calendar.set(Calendar.HOUR_OF_DAY,21);
+                calendar.set(Calendar.MINUTE,3);
                 calendar.set(Calendar.SECOND,00);
 
                 if(Calendar.getInstance().after(calendar)){
@@ -373,8 +373,9 @@ public class DoNotBlameActivityLogIn extends NavigationActivityLogIn {
         View eulaLayout = adbInflater.inflate(R.layout.layout_donotblame_dialog, null);
 
         adb.setView(eulaLayout);
-        adb.setTitle("Love Yourself");
-        adb.setMessage("\nDo you blame yourself for something? Or are you in an unbearable situation? Leave yourself a message of encouragement");
+        adb.setTitle("Hug Myself");
+        adb.setMessage("\nDo you blame yourself for something or find yourself in an unbearable situation? \nLeave yourself a message of encouragement. \n\n" +
+                "By clicking the \"SET NOTIFICATION\" button, you will receive a notification of the content you wrote every morning at 8:00 AM.");
         adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
 

@@ -131,7 +131,7 @@ public class HomeActivityLogIn extends NavigationActivityLogIn {
         if(user != null){
             userEmail = user.getEmail();
             Log.d(TAG, userEmail + "");
-            Toast.makeText(HomeActivityLogIn.this, "Welcome, " + userEmail, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(HomeActivityLogIn.this, "Welcome, " + userEmail, Toast.LENGTH_SHORT).show();
         }
     }
 
